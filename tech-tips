@@ -1,0 +1,46 @@
+<div style="margin-bottom:0;background-color:#9D2235;">
+  <table style="width:100%;">
+    <tbody>
+      <tr>
+        <td style="width:100%;">
+          <div style="padding:20px 10px;">
+            <div style="margin:0 10px;background-color:#F2F9FA;padding:20px;" align="center">
+
+              <h2 style="text-align:center;padding-bottom:5px;border-bottom:5px solid #37B550;">
+                Tech Tips
+              </h2>
+
+              <div id="imageCarousel1" style="position:relative;max-width:100%;">
+                <img id="carouselImage1" 
+                     src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/SCC%20Tech%20Tips.jpg" 
+                     style="width:100%;height:auto;border:none;" 
+                     alt="Slideshow Image">
+              </div>
+
+              <div style="margin-top:15px;">
+                <button onclick="printImage1()" 
+                        style="padding:10px 20px;font-size:16px;background-color:#37B550;
+                               color:white;border:none;border-radius:6px;cursor:pointer;">
+                  🖨️ Print Tech Tips
+                </button>
+              </div>
+
+              <script>
+                function printImage1() {
+                  const imgSrc = document.getElementById("carouselImage1").src;
+                  const printWindow = window.open('', '_blank');
+                  printWindow.document.write('<html><head><title>Print Tech Tips</title></head><body>');
+                  printWindow.document.write(`<img src="${imgSrc}" style="width:100%;margin-bottom:20px;">`);
+                  printWindow.document.write('</body></html>');
+                  printWindow.document.close();
+                  printWindow.onload = () => printWindow.print();
+                }
+              </script>
+
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
