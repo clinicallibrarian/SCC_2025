@@ -1,0 +1,88 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    .mtg-font {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+  </style>
+</head>
+
+<div id="id_gl8ShG6" data-componentid="gl8ShG6" class="WaLayoutContainer" style="margin-bottom:0px;background-color:#9D2235;"><table cellspacing="0" cellpadding="0" class="WaLayoutTable" style=""><tbody><tr data-componentid="gl8ShG6_row" class="WaLayoutRow"><td id="id_C5PG4Nx" data-componentid="C5PG4Nx" class="WaLayoutItem" style="width:100%;"><div id="id_uz3WyiW" class="WaLayoutPlaceHolder placeHolderContainer" data-componentid="uz3WyiW" style=""><div style="padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;"><div id="id_xuHYJ27" class="WaGadgetFirst WaGadgetContent  gadgetStyleNone" style="margin-right:10px;margin-left:10px;background-color:#F2F9FA;" data-componentid="xuHYJ27"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;" data-editablearea="0" data-areaheight="auto">
+<div class="mtg-font" style="font-size: 1.2em; font-weight: bold; text-align: center; padding: 10px; border: 5px solid #37B550;">
+
+ <p style="margin-top: 20px;"><a class="mtg-button" href="https://sccmla.regfox.com/2025-sccmla-annual-meeting" target="_blank" rel="noreferrer" style="font-size: 30px; padding: 10px 20px; text-decoration: none; cursor: pointer; font-weight: bold;">Register Now!</a></p>
+
+  <div style="margin-top: 20px;"><img alt="Visa Logo" width="40" src="https://s3-us-west-2.amazonaws.com/assets.webconnex.com/images/cc-logos/cc-logo-visa.png" style="margin: 0px 1px;"><img alt="Mastercard Logo" width="40" src="https://s3-us-west-2.amazonaws.com/assets.webconnex.com/images/cc-logos/cc-logo-mc.png" style="margin: 0px 1px;"><img alt="Amex Logo" width="40" src="https://s3-us-west-2.amazonaws.com/assets.webconnex.com/images/cc-logos/cc-logo-amex.png" style="margin: 0px 1px;"><img alt="Discover Logo" width="40" src="https://s3-us-west-2.amazonaws.com/assets.webconnex.com/images/cc-logos/cc-logo-discover.png" style="margin: 0px 1px;"></div>
+</table>
+<div class="mtg-font" style="background-color:#F2F9FA; padding: 20px;">
+  <table style="width: 100%; border-collapse: collapse; font-size: 16px; text-align: center;">
+    <thead>
+      <tr style="background-color: #37B550; color: white;">
+        <th style="padding: 10px; border: 1px solid #ccc;">LEVEL</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">EARLY BIRD<br>(thru 9/5)</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">REGULAR<br>(9/6 – 9/23)</th>
+        <th style="padding: 10px; border: 1px solid #ccc;">LATE<br>(9/24 or later)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Member – Standard<br><small>[Includes Business Lunch, Breaks & Final Party]</small></td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$300</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$350</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$400</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Member – Inclusive<br><small>[Includes HSC Lunch, Business Lunch, Breaks & Final Party]</small></td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$360</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$410</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$460</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Non-Member – Standard</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$390</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$440</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$490</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Non-Member – Inclusive</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$450</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$500</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$550</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Retiree – Standard</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$135</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$185</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$235</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Retiree – Inclusive</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$135</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$245</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$295</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Library Student – Standard</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$115</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$140</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$165</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Library Student – Inclusive</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$145</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$170</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$195</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">Single Day</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$145</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$195</td>
+        <td style="padding: 10px; border: 1px solid #ccc;">$245</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
