@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Things To Do – Little Rock</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  h1 {
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  /* TAG BUTTONS */
+  .tags {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .tag {
+    padding: 8px 14px;
+    background: #9D2235;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.25s;
+  }
+
+  .tag.active {
+    background: #333;
+  }
+
+  #resetBtn {
+    margin-left: auto;
+    background: #555;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* LOCATION LIST */
+  .location {
+    background: white;
+    padding: 15px 18px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  .location h3 {
+    margin: 0 0 5px 0;
+  }
+
+  .location a {
+    text-decoration: none;
+    color: #9D2235;
+    font-weight: 600;
+  }
+
+  /* MAP */
+  .map-area {
+    margin-top: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Things To Do in Little Rock</h1>
+
+  <!-- TAG FILTER BAR -->
+  <div class="tags">
+    <div class="tag" data-tag="Kid">Kid</div>
+    <div class="tag" data-tag="Sweets">Sweets</div>
+    <div class="tag" data-tag="DineSouth">DineSouth</div>
+    <div class="tag" data-tag="DineEast">DineEast</div>
+    <div class="tag" data-tag="DineWest">DineWest</div>
+    <div class="tag" data-tag="Art">Art</div>
+    <div class="tag" data-tag="Coffee">Coffee</div>
+    <div class="tag" data-tag="Brewery">Brewery</div>
+    <div class="tag" data-tag="Interest">Interest</div>
+
+    <div id="resetBtn">Reset</div>
+  </div>
+
+  <!-- LOCATION LIST -->
+  <div id="locationList">
+
+    <!-- Each location automatically filters based on tags -->
+    <div class="location" data-tags="Kid,DineSouth" data-map="https://maps.app.goo.gl/hoywvJ2npMncyu2c8">
+      <h3>El Sur Street Food Co</h3>
+      <a href="https://maps.app.goo.gl/hoywvJ2npMncyu2c8" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="Sweets,Kid,DineSouth" data-map="https://maps.app.goo.gl/Ufjr7UeLTLqc1AeB7">
+      <h3>Loblolly Creamery</h3>
+      <a href="https://maps.app.goo.gl/Ufjr7UeLTLqc1AeB7" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineSouth" data-map="https://maps.app.goo.gl/2D1w4EMyDc8iqDhM9">
+      <h3>BCW</h3>
+      <a href="https://maps.app.goo.gl/2D1w4EMyDc8iqDhM9" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineSouth" data-map="https://maps.app.goo.gl/qZk2iUdjihQuN9dn6">
+      <h3>The Root Cafe</h3>
+      <a href="https://maps.app.goo.gl/qZk2iUdjihQuN9dn6" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineEast" data-map="https://maps.app.goo.gl/bMJDTAS7GhSTYAhdA">
+      <h3>The Rail Yard LR</h3>
+      <a href="https://maps.app.goo.gl/bMJDTAS7GhSTYAhdA" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineEast" data-map="https://maps.app.goo.gl/Ag2Z9TPmCxAo78LG6">
+      <h3>Sterling Market</h3>
+      <a href="https://maps.app.goo.gl/Ag2Z9TPmCxAo78LG6" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineEast" data-map="https://maps.app.goo.gl/huvPXXoJD6DVeNycA">
+      <h3>Camp Taco at Lost Forty</h3>
+      <a href="https://maps.app.goo.gl/huvPXXoJD6DVeNycA" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineEast,Brewery" data-map="https://maps.app.goo.gl/n4AHGz9ceXNeeNJH7">
+      <h3>Lost Forty Brewing</h3>
+      <a href="https://maps.app.goo.gl/n4AHGz9ceXNeeNJH7" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="Art,Kid" data-map="https://maps.app.goo.gl/JKFMXf7YpHh2tZWV6">
+      <h3>Museum of Discovery</h3>
+      <a href="https://maps.app.goo.gl/JKFMXf7YpHh2tZWV6" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="Coffee" data-map="https://maps.app.goo.gl/oEwc3kegjVVHZfNBA">
+      <h3>Fidel & Co Downtown</h3>
+      <a href="https://maps.app.goo.gl/oEwc3kegjVVHZfNBA" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineWest" data-map="https://maps.app.goo.gl/">
+      <h3>Cantina Laredo</h3>
+      <a href="https://maps.app.goo.gl/" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineWest,Interest" data-map="https://maps.app.goo.gl/">
+      <h3>The Container Store</h3>
+      <a href="https://maps.app.goo.gl/" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineWest,Kid" data-map="https://maps.app.goo.gl/">
+      <h3>Big Orange</h3>
+      <a href="https://maps.app.goo.gl/" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="Interest" data-map="https://maps.app.goo.gl/">
+      <h3>Yarn Kandy</h3>
+      <a href="https://maps.app.goo.gl/" target="_blank">Open in Google Maps</a>
+    </div>
+
+    <div class="location" data-tags="DineSouth,Art" data-map="https://maps.app.goo.gl/">
+      <h3>ESSE Purse Museum & Store</h3>
+      <a href="https://maps.app.goo.gl/" target="_blank">Open in Google Maps</a>
+    </div>
+
+  </div>
+
+  <!-- MAP DISPLAY -->
+  <div class="map-area">
+    <iframe id="mapFrame"
+      src="https://maps.google.com/maps?q=Little%20Rock&t=&z=12&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+  </div>
+
+</div>
+
+<script>
+  const tags = document.querySelectorAll('.tag');
+  const locations = document.querySelectorAll('.location');
+  const mapFrame = document.getElementById('mapFrame');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let activeTag = null;
+
+  tags.forEach(tag => {
+    tag.addEventListener('click', () => {
+
+      // Toggle tag
+      if (tag.classList.contains('active')) {
+        tag.classList.remove('active');
+        activeTag = null;
+        showAll();
+        return;
+      }
+
+      // Activate selected tag
+      tags.forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      activeTag = tag.dataset.tag;
+
+      filterLocations();
+    });
+  });
+
+  function filterLocations() {
+    locations.forEach(loc => {
+      const locTags = loc.dataset.tags.split(',');
+
+      if (locTags.includes(activeTag)) {
+        loc.style.display = 'block';
+      } else {
+        loc.style.display = 'none';
+      }
+    });
+  }
+
+  function showAll() {
+    locations.forEach(loc => {
+      loc.style.display = 'block';
+    });
+  }
+
+  // Update map when clicking a location
+  locations.forEach(loc => {
+    loc.addEventListener('click', () => {
+      const url = loc.dataset.map;
+      mapFrame.src = url.replace("https://maps.app.goo.gl/", "https://www.google.com/maps?q=");
+    });
+  });
+
+  // Reset
+  resetBtn.addEventListener('click', () => {
+    tags.forEach(t => t.classList.remove('active'));
+    activeTag = null;
+    showAll();
+    mapFrame.src = "https://maps.google.com/maps?q=Little%20Rock&t=&z=12&ie=UTF8&iwloc=&output=embed";
+  });
+
+</script>
+
+</body>
+</html>
