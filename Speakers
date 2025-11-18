@@ -1,0 +1,76 @@
+<head>
+	<!-- Import the Poppins font from Google Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+	<!-- Define .mtg-font to use Poppins sans-serif font -->
+	<style>
+		.mtg-font {
+			font-family: 'Poppins', sans-serif;
+			font-size: 16px;
+			line-height: 1.6;
+			color: #333;
+			/* Adjust if needed */
+		}
+	</style>
+</head>
+
+  <div id="id_gl8ShG6" data-componentid="gl8ShG6" class="WaLayoutContainer" style="margin-bottom:0px;background-color:#9D2235;"><table cellspacing="0" cellpadding="0" class="WaLayoutTable" style=""><tbody><tr data-componentid="gl8ShG6_row" class="WaLayoutRow"><td id="id_C5PG4Nx" data-componentid="C5PG4Nx" class="WaLayoutItem" style="width:100%;"><div id="id_uz3WyiW" class="WaLayoutPlaceHolder placeHolderContainer" data-componentid="uz3WyiW" style=""><div style="padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;"><div id="id_vtBUNQb" class="WaGadgetFirst WaGadgetContent  gadgetStyleNone" style="margin-right:10px;margin-left:10px;background-color:#F2F9FA;" data-componentid="vtBUNQb"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;" data-editablearea="0" data-areaheight="auto">
+<h3 class="mtg-hdr">Keynote Speakers</h3>
+
+<p  class="mtg-font"><strong>General Session 1: Sunday Oct. 26th, 2025</strong></p>
+<img style="float: right; margin: 10px; width: 200px;" src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/OlegKaraduta-Head%20Shot.jpg" alt="" title="" border="0">
+<p class="mtg-font"><strong>Oleg Karaduta, MD</strong></p>
+
+<p class="mtg-font">Dr. Oleg Karaduta is an Assistant Professor and Director of Research in the Department of Physician Assistant Studies at the University of Arkansas for Medical Sciences (UAMS). With a background in vascular surgery and molecular biology, his current academic work centers on evidence-based medicine, capstone project development, and student mentorship. Dr. Karaduta has led multiple interprofessional educational initiatives and actively collaborates with health sciences librarians to enhance research training across programs.</br>
+
+A passionate advocate for academic innovation, Dr. Karaduta was recently awarded an Educational Innovation Grant to integrate virtual reality into anatomy education. He also serves on the UAMS Academic Senate as President-Elect and regularly contributes to faculty development efforts at the College of Health Professions.</br>
+
+Known for his dynamic presentations and humor-infused teaching style, Dr. Karaduta is especially interested in the intersection of wellness, scholarly productivity, and sustainable excellence in health education.
+</p>
+
+    </tr>
+  </tbody>
+</table></div>
+  <div id="id_gl8ShG6" data-componentid="gl8ShG6" class="WaLayoutContainer" style="margin-bottom:0px;background-color:#9D2235;"><table cellspacing="0" cellpadding="0" class="WaLayoutTable" style=""><tbody><tr data-componentid="gl8ShG6_row" class="WaLayoutRow"><td id="id_C5PG4Nx" data-componentid="C5PG4Nx" class="WaLayoutItem" style="width:100%;"><div id="id_uz3WyiW" class="WaLayoutPlaceHolder placeHolderContainer" data-componentid="uz3WyiW" style=""><div style="padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;"><div id="id_vtBUNQb" class="WaGadgetFirst WaGadgetContent  gadgetStyleNone" style="margin-right:10px;margin-left:10px;background-color:#F2F9FA;" data-componentid="vtBUNQb"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;" data-editablearea="0" data-areaheight="auto">
+<p class="mtg-font"><strong>Hospital Clinical Section Luncheon: Monday Oct. 27th, 2025</strong></p>
+<img style="float: right; margin: 10px; width: 200px;" src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/TNutt%20-%20HeadShot.png" alt="" title="" border="0">
+<p class="mtg-font"><strong>Tim Nutt, MLIS</strong></p>
+
+<p class="mtg-font">Tim Nutt is currently employed as Director of the Historical Research Center at the University of Arkansas for Medical Sciences. Previously, he was employed as Head and Manuscripts/Rare Books Librarian of Special Collections at the University of Arkansas in Fayetteville He was recognized with a Distinguished Faculty Award by the UA Honors College. </br>
+
+Prior to his University of Arkansas-Fayetteville work, Tim worked at the Central Arkansas Library System in the Technical Services and Reference departments before being appointed the founding Deputy Curator of the Butler Center for Arkansas Studies.  While with the Butler Center, he co-created and served as the founding Managing Editor and Staff Historian of the award-winning Encyclopedia of Arkansas History & Culture. </br>
+
+A native of Bigelow, Arkansas, Tim graduated with a Bachelor of Arts degree in History from the University of Central Arkansas and a Masters of Library and Information Studies with an emphasis on archives from the University of Oklahoma. He is a past president of the Arkansas Historical Association and a Certified Archivist. 
+</p>
+
+    </tr>
+  </tbody>
+</table></div>
+  <div id="id_gl8ShG6" data-componentid="gl8ShG6" class="WaLayoutContainer" style="margin-bottom:0px;background-color:#9D2235;"><table cellspacing="0" cellpadding="0" class="WaLayoutTable" style=""><tbody><tr data-componentid="gl8ShG6_row" class="WaLayoutRow"><td id="id_C5PG4Nx" data-componentid="C5PG4Nx" class="WaLayoutItem" style="width:100%;"><div id="id_uz3WyiW" class="WaLayoutPlaceHolder placeHolderContainer" data-componentid="uz3WyiW" style=""><div style="padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;"><div id="id_vtBUNQb" class="WaGadgetFirst WaGadgetContent  gadgetStyleNone" style="margin-right:10px;margin-left:10px;background-color:#F2F9FA;" data-componentid="vtBUNQb"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;" data-editablearea="0" data-areaheight="auto">
+<p class="mtg-font"><strong>General Session 2: Monday Oct. 27th, 2025</strong></p>
+<img style="float: right; margin: 10px; width: 200px;" src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Hopkins_Robert_MD-2020%20Head%20Shot.jpg" alt="" title="" border="0">
+<p class="mtg-font"><strong>Robert H. Hopkins, Jr., MD</strong></p>
+<p class="mtg-font">Robert Hopkins, Jr., MD, MACP is Medical Director for the National Foundation for Infectious Diseases and Professor of Internal Medicine and Pediatrics at the University of Arkansas for Medical Sciences.  In addition, he is past chair of the National Vaccine Advisory Committee to the US Department of Health and Human Services and is current chair of the American College of Physicians Immunization Committee. </br>
+
+Dr. Hopkins’ primary academic focus is clinical vaccinology.  Dr. Hopkins maintains an active teaching and clinical practice providing primary and consultative care to adults and children. 
+</p>
+
+    </tr>
+  </tbody>
+</table></div>
+  <div id="id_gl8ShG6" data-componentid="gl8ShG6" class="WaLayoutContainer" style="margin-bottom:0px;background-color:#9D2235;"><table cellspacing="0" cellpadding="0" class="WaLayoutTable" style=""><tbody><tr data-componentid="gl8ShG6_row" class="WaLayoutRow"><td id="id_C5PG4Nx" data-componentid="C5PG4Nx" class="WaLayoutItem" style="width:100%;"><div id="id_uz3WyiW" class="WaLayoutPlaceHolder placeHolderContainer" data-componentid="uz3WyiW" style=""><div style="padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;"><div id="id_vtBUNQb" class="WaGadgetFirst WaGadgetContent  gadgetStyleNone" style="margin-right:10px;margin-left:10px;background-color:#F2F9FA;" data-componentid="vtBUNQb"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;" data-editablearea="0" data-areaheight="auto">
+<p class="mtg-font"><strong>General Session 3: Tuesday Oct. 28th, 2025</strong></p><img style="float: right; margin: 10px; width: 200px;" src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/LTMoore%20-%20HeadShot.jpg" alt="" title="" border="0">
+<p class="mtg-font"><strong>Leah Tobey-Moore, PT, DPT, MA </strong></p>
+
+<p class="mtg-font">Dr. Tobey-Moore is an Arkansas native and has been a member of the UAMS team since 2013. She is passionate about teaching patients and providers about best practices of multimodal and evidence-based pain therapy. In late 2020, she joined the faculty at the Center for Health Services Research within the UAMS Psychiatric Research Institute, where she has led several research initiatives, including academic detailing education on opioid-sparing treatments.</br>
+
+Dr. Tobey-Moore serves as the Lead Trainer for Arkansas Naloxone Education Training (ANET) program, which is a train-the-trainer program and focuses on implementation and dissemination of life-saving overdose reversal strategies across the state. She is the Clinic Director for a HRSA-sponsored Geriatric Workforce Enhancement Program (GWEP) grant at the UAMS Institute on Aging.</br>
+
+Her research interests include implementation science, gait, chronic pain and the mental health impacts, naloxone education, pain neuroscience education, and geriatric workforce development. 
+Outside of her professional work, Dr. Tobey-Moore enjoys traveling, nature, making sourdough, and spending time with family.</p>
+
+    </tr>
+  </tbody>
+</table></div>
+
+</div></div></div></td></tr></tbody></table> </div>
