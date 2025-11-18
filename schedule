@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #9D2235;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 10px;
+    }
+
+    .ce-box {
+      background-color: #F2F9FA;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 5px solid #37B550;
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: none;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      margin: 20px 0;
+    }
+
+    .carousel-container button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      font-size: 36px;
+      padding: 16px 24px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .carousel-container .prev { left: 0; }
+    .carousel-container .next { right: 0; }
+
+    .print-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #37B550;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .wellness-event img {
+      float: right;
+      margin: 10px;
+      width: 200px;
+    }
+
+    .wellness-event::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    a.mtg-button {
+      font-size: 30px;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      background-color: #37B550;
+      color: white;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Tentative Schedule -->
+  <div class="ce-box">
+    <h2>Schedule of Events</h2>
+    <div class="carousel-container" id="imageCarousel1">
+      <img id="carouselImage1" 
+           src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/SCC%202025%20Schedule%20-%2010.20.25_Page_1.jpg" 
+           alt="Schedule Page">
+      <button class="prev" onclick="changeImage1(-1)">❮</button>
+      <button class="next" onclick="changeImage1(1)">❯</button>
+    </div>
+    <button class="print-button" onclick="printAllImages1()">🖨️ Print Full Schedule</button>
+  </div>
+
+  <!-- Wellness Events -->
+  <div class="ce-box">
+    <h2>Wellness Events</h2>
+    <p><a class="mtg-button" href="https://www.signupgenius.com/go/10C0C45A9A823A1F8C70-57165937-sccinterest" target="_blank" rel="noreferrer">Event Sign Up</a></p>
+
+    <div class="wellness-event">
+      <img src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/MonicaSmith-Self%20Defense.jpg" alt="">
+      <p><strong>Self Defense Awareness</strong><br>
+      <em>Saturday, Oct. 25th • 10:30–11:30 am • Edgehill</em><br>
+      Monica Smith has been training in martial arts for over 30 years and has taught for 20. She holds a 7th-degree Black Belt and chairs the Safety Committee of the Greater Central Arkansas Board of Realtors. She’ll teach basic strategies to stay safe in daily life.</p>
+    </div>
+
+    <div class="wellness-event">
+      <img src="https://sccmla.org/resources/Documents/events/2025_LittleRock/images/sfulton-yoga-session-2025.jpg" alt="">
+      <p><strong>Come as You Are Yoga</strong><br>
+      <em>Saturday, Oct. 25th • 5:15–6:00 pm • Edgehill</em><br>
+      Join Stephanie Fulton, RYT 200, for 45 minutes of gentle movement to reset after a day of learning or travel. Comfortable clothing is all you need. No prior experience required.</p>
+    </div>
+
+    <div class="wellness-event">
+      <img src="https://sccmla.org/resources/Documents/events/2025_LittleRock/images/Alyssa.png" alt="">
+      <p><strong>Check Out What’s Cooking: Culinary Medicine for Everyday Wellness</strong><br>
+      <em>Sunday, Oct. 26th • 10:30–11:30 am • Salon C</em><br>
+      This live culinary medicine demonstration will inspire personal wellness through food. Learn recipe prep, home chef skills, and key nutrition tips for delicious, healthy meals. Presented by Alyssa Frisby, MS, RD, LD.</p>
+    </div>
+
+    <div class="wellness-event">
+      <img src="https://sccmla.org/resources/Documents/events/2025_LittleRock/images/Kelly.png" alt="">
+      <p><strong>STOP THE BLEED</strong><br>
+      <em>Sunday, Oct. 26th • 6:00–7:00 pm • Edgehill</em><br>
+      The #1 cause of death after injury is bleeding. This American College of Surgeons program helps bystanders become lifesavers. Learn compression, tourniquet, and wound-packing techniques. Led by Kelly Urban, RN, UAMS Injury Prevention Coordinator.</p>
+    </div>
+
+    <div class="wellness-event">
+      <img src="https://sccmla.org/resources/Documents/events/2025_LittleRock/images/sfulton-yoga-session-2025.jpg" alt="">
+      <p><strong>Wind Down with Gentle Movement</strong><br>
+      <em>Sunday, Oct. 26th • 8:00–9:00 pm • Edgehill</em><br>
+      End the weekend with calm and stillness led by Stephanie Fulton, RYT 200. Bring a mat or towel; we’ll do some floor-based movements. No experience needed.</p>
+    </div>
+  </div>
+
+  <!-- Unwelcome Zine -->
+  <div class="ce-box">
+    <h2>Unwelcome Zine</h2>
+    <div class="carousel-container" id="imageCarousel2">
+      <img id="carouselImage2" 
+           src="https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_1.jpg" 
+           alt="Unwelcome Zine Page">
+      <button class="prev" onclick="changeImage2(-1)">❮</button>
+      <button class="next" onclick="changeImage2(1)">❯</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Schedule carousel
+  const images1 = [
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/SCC%202025%20Schedule%20-%2010.20.25_Page_1.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/SCC%202025%20Schedule%20-%2010.20.25_Page_2.jpg"
+  ];
+  let currentIndex1 = 0;
+  function changeImage1(direction) {
+    currentIndex1 = (currentIndex1 + direction + images1.length) % images1.length;
+    document.getElementById("carouselImage1").src = images1[currentIndex1];
+  }
+  function printAllImages1() {
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write('<html><head><title>Print Schedule</title></head><body>');
+    images1.forEach(img => printWindow.document.write(`<img src="${img}" style="width:100%;margin-bottom:20px;">`));
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.onload = () => printWindow.print();
+  }
+
+  // Unwelcome Zine carousel
+  const images2 = [
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_1.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_2.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_3.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_4.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_5.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_6.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_7.jpg",
+    "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Unwelcome_Zine_Page_8.jpg"
+  ];
+  let currentIndex2 = 0;
+  function changeImage2(direction) {
+    currentIndex2 = (currentIndex2 + direction + images2.length) % images2.length;
+    document.getElementById("carouselImage2").src = images2[currentIndex2];
+  }
+</script>
+
+</body>
+</html>
