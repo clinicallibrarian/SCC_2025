@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conference Program</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #9D2235;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 10px;
+    }
+
+    .program-box {
+      background-color: #F2F9FA;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      padding-bottom: 5px;
+      border-bottom: 5px solid #37B550;
+      margin-bottom: 15px;
+    }
+
+    #imageCarousel img {
+      width: 100%;
+      max-height: 90vh;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+
+    #thumbnailWrapper {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      margin-top: 15px;
+    }
+
+    #thumbnailContainer {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      width: max-content;
+      scrollbar-color: #37B550 #ddd;
+      scrollbar-width: thin;
+    }
+
+    #thumbnailContainer img {
+      width: 80px;
+      height: auto;
+      cursor: pointer;
+      border-radius: 4px;
+      border: 2px solid transparent;
+      transition: border 0.2s;
+    }
+
+    #thumbnailContainer img.active {
+      border: 3px solid #37B550;
+    }
+
+    button.print-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #37B550;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="program-box">
+
+      <h2>Conference Program</h2>
+
+      <!-- Carousel -->
+      <div id="imageCarousel">
+        <img id="carouselImage" src="" alt="Conference Program Image">
+      </div>
+
+      <!-- Thumbnails -->
+      <div id="thumbnailWrapper">
+        <div id="thumbnailContainer"></div>
+      </div>
+
+      <!-- Print Button -->
+      <button class="print-btn" onclick="printAllImages()">🖨️ Print Conference Program</button>
+
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_01.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_02.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_03.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_04.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_05.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_06.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_07.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_08.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_09.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_10.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_11.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_12.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_13.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_14.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_15.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_16.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_17.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_18.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_19.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_20.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_21.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_22.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_23.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_24.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_25.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_26.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_27.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_28.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_29.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_30.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_31.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_32.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_33.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_34.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_35.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_36.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_37.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_38.jpg",
+      "https://www.sccmla.org/resources/Documents/events/2025_LittleRock/images/Program/SCC%20LR%202025%20Program_Full%20(002)_Page_39.jpg"
+    ];
+
+    const carousel = document.getElementById("carouselImage");
+    const thumbnails = document.getElementById("thumbnailContainer");
+    let currentIndex = 0;
+
+    // Build thumbnails
+    images.forEach((src, i) => {
+      const t = document.createElement("img");
+      t.src = src;
+      t.className = i === 0 ? "active" : "";
+      t.onclick = () => {
+        currentIndex = i;
+        updateCarousel();
+      };
+      thumbnails.appendChild(t);
+    });
+
+    function updateCarousel() {
+      carousel.src = images[currentIndex];
+      const thumbs = thumbnails.querySelectorAll("img");
+      thumbs.forEach((t, i) => t.className = i === currentIndex ? "active" : "");
+    }
+
+    // Initialize carousel
+    updateCarousel();
+
+    // Drag-to-scroll for thumbnails
+    const wrapper = document.getElementById("thumbnailWrapper");
+    let isDown = false, startX, scrollLeft;
+
+    wrapper.addEventListener("mousedown", e => {
+      isDown = true;
+      startX = e.pageX - wrapper.offsetLeft;
+      scrollLeft = wrapper.scrollLeft;
+    });
+    wrapper.addEventListener("mouseleave", () => isDown = false);
+    wrapper.addEventListener("mouseup", () => isDown = false);
+    wrapper.addEventListener("mousemove", e => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - wrapper.offsetLeft;
+      wrapper.scrollLeft = scrollLeft - (x - startX);
+    });
+
+    // Print all images
+    function printAllImages() {
+      const printWindow = window.open("", "_blank");
+      printWindow.document.write("<html><head><title>Print Conference Program</title></head><body style='margin:0;'>");
+      images.forEach(img => {
+        printWindow.document.write(`<img src='${img}' style='width:100%;margin-bottom:20px;'>`);
+      });
+      printWindow.document.write("</body></html>");
+      printWindow.document.close();
+      printWindow.onload = () => printWindow.print();
+    }
+  </script>
+
+</body>
+</html>
