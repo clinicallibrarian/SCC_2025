@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continuing Education</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #9D2235;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 10px;
+    }
+
+    .ce-box {
+      background-color: #F2F9FA;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    h2 img {
+      float: right;
+      width: 200px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 3px solid #574643;
+      width: 100%;
+      max-width: 700px;
+      margin: 20px auto;
+      background-color: #fff;
+    }
+
+    table td {
+      border: 3px solid #574643;
+      padding: 10px;
+      vertical-align: top;
+    }
+
+    table td strong {
+      display: block;
+    }
+
+    ul {
+      margin: 0 0 15px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- CE Session 1 -->
+    <div class="ce-box">
+      <h2>
+        Teaching AI Across the Research Life Cycle
+        <img src="/resources/Documents/events/2025_LittleRock/images/Logo-FINAL-LRskyline-TagLine%203.19.25.png" 
+             alt="CE 4 – Open Science, Open Data">
+      </h2>
+      <p>Picture this: a student sends an email to you looking for a specific article. You search for hours only to find out that the student found this article through an AI research platform. It’s fake. One of your most popular databases is promoting a new AI research assistant within the software, but they are not being transparent about how they utilize user information. Do these scenarios sound familiar? Then this course is for you. This course would describe how health sciences librarians can integrate their information literacy expertise into instruction surrounding AI in the context of research.</p>
+      <p>At the end of the workshop participants will be able to:</p>
+      <ul>
+        <li>Identify different types of AI platforms in order to prioritize content to instruct researchers</li>
+        <li>Describe different stations of the research cycle in order to determine what level of AI instruction to deliver</li>
+        <li>Articulate librarian expertise in education in order to successfully implement librarian interventions in research education</li>
+      </ul>
+      <p><strong>Instructors:<br>
+        Kay Strahan – Northwest Campus Librarian – University of Arkansas for Medical Sciences Northwest Campus Library, Fayetteville, AR<br>
+        Megan York – Education Librarian – University of Arkansas Mullins Library, Fayetteville, AR
+      </strong></p>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Date:</strong></td>
+            <td>Saturday, October 25, 2025</td>
+          </tr>
+          <tr>
+            <td><strong>Time:</strong></td>
+            <td>8:00am-10:00am</td>
+          </tr>
+          <tr>
+            <td><strong>MLA CE Credit:</strong></td>
+            <td>2 Credit Hours</td>
+          </tr>
+          <tr>
+            <td><strong>Fee:</strong></td>
+            <td>$25</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CE Session 2 -->
+    <div class="ce-box">
+      <h2>
+        Project & Data Management in Evidence Syntheses
+        <img src="/resources/Documents/events/2025_LittleRock/images/Logo-FINAL-LRskyline-TagLine%203.19.25.png" 
+             alt="CE 1 – Safe Zone Training">
+      </h2>
+      <p>Consulting on evidence syntheses projects is now a common task for many medical librarians. Utilizing appropriate project and data management throughout projects is vital to the review being conducted efficiently and matching appropriate standards. This course will provide a strong foundation in the principles and best practices for project and data management in systematic reviews and other synthesis types.</p>
+      <p>At the end of the workshop participants will be able to:</p>
+      <ul>
+        <li>Define project management for systematic reviews and best practices</li>
+        <li>Use template for data management for systematic reviews</li>
+        <li>Describe important data to track for evidence syntheses</li>
+        <li>Use checklist for consulting with review authors</li>
+      </ul>
+      <p><strong>Instructor:<br>
+        Margaret Foster – Evidence Synthesis & Scholarly Dissemination Librarian, Texas A&M University
+      </strong></p>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Date:</strong></td>
+            <td>Saturday, October 25th, 2025</td>
+          </tr>
+          <tr>
+            <td><strong>Time:</strong></td>
+            <td>1:30pm-4:30pm</td>
+          </tr>
+          <tr>
+            <td><strong>MLA CE Credit:</strong></td>
+            <td>3 Credit Hours</td>
+          </tr>
+          <tr>
+            <td><strong>Fee:</strong></td>
+            <td>$40</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CE Session 3 -->
+    <div class="ce-box">
+      <h2>
+        Tools to Support Searching for Evidence Synthesis
+        <img src="/resources/Documents/events/2025_LittleRock/images/Logo-FINAL-LRskyline-TagLine%203.19.25.png" 
+             alt="CE 2 – Designing a Review Service">
+      </h2>
+      <p>Searching for evidence syntheses projects can be time-consuming. New tools are being developed to help in many of the processes, but it is difficult to keep up and learn about new tools. This course will provide an opportunity to learn about new tools to help across searching such as term finding, deduplication, translation of searches across new databases and platforms, grey literature searching, and citation chasing.</p>
+      <p>At the end of the workshop participants will be able to:</p>
+      <ul>
+        <li>Define searching standards using Cochrane MECIR standards as a checklist</li>
+        <li>List tools to help with term finding and translating searches</li>
+        <li>Describe options for deduplication</li>
+        <li>Describe options and tools for grey literature and citation searching</li>
+      </ul>
+      <p><strong>Instructor:<br>
+        Margaret Foster – Evidence Synthesis & Scholarly Dissemination Librarian, Texas A&M University
+      </strong></p>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Date:</strong></td>
+            <td>Sunday, October 26th, 2025</td>
+          </tr>
+          <tr>
+            <td><strong>Time:</strong></td>
+            <td>9:00am-12:00pm</td>
+          </tr>
+          <tr>
+            <td><strong>MLA CE Credit:</strong></td>
+            <td>3 Credit Hours</td>
+          </tr>
+          <tr>
+            <td><strong>Fee:</strong></td>
+            <td>$40</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CE Session 4 -->
+    <div class="ce-box">
+      <h2>
+        4 Tools for Assessing Health Education Materials
+        <img src="/resources/Documents/events/2025_LittleRock/images/Logo-FINAL-LRskyline-TagLine%203.19.25.png" 
+             alt="CE 3 – Treasures of the All of Us Research Data">
+      </h2>
+      <p>How do you know if health education materials are easy-to-read? This 2-hour in-person class or webinar provides an overview of 4 free tools you can use to assess health education material. We’ll discuss the key elements, differences, and similarities of Clear Communications Index (CCI), Suitability Assessment of Materials (SAM), Patient Education Materials Assessment Tool (PEMAT), and NLM’s Health Education Materials Assessment Tool (HEMAT). Learners will use NLM’s HEMAT to evaluate health education material in an exploratory exercise.</p>
+      <p>At the end of the workshop participants will be able to:</p>
+      <ul>
+        <li>Explain the benefits of assessing health education materials</li>
+        <li>Identify the key elements, differences, and similarities of 4 health education material assessment tools</li>
+        <li>Use the following tools: CCI, SAM, PEMAT, HEMAT</li>
+        <li>Use the NLM's HEMAT to evaluate health education materials</li>
+      </ul>
+      <p><strong>Instructor:<br>
+        Molly Knapp – Training Development Manager – NNLM/University of Utah
+      </strong></p>
+
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Date:</strong></td>
+            <td>Sunday, October 26th, 2025</td>
+          </tr>
+          <tr>
+            <td><strong>Time:</strong></td>
+            <td>1:00pm-3:00pm</td>
+          </tr>
+          <tr>
+            <td><strong>MLA CE Credit:</strong></td>
+            <td>2 Credit Hours</td>
+          </tr>
+          <tr>
+            <td><strong>Fee:</strong></td>
+            <td>$25</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>
