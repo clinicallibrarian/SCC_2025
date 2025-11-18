@@ -1,0 +1,857 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"], select {
+      padding: 8px;
+      border: 2px solid #37b550;
+      border-radius: 5px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    select.active {
+      background-color: #dbeafe;
+      border-color: #2563eb;
+    }
+
+    button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #9D2235;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #7a1a2a;
+    }
+
+#location-list {
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.list-item {
+  border: 2px solid #37b550 !important;
+  border-radius: 8px !important;
+  background-color: #fff !important;
+  padding: 20px 30px !important;  /* gives left/right internal spacing inside green border */
+    margin: 25px 0 !important;      /* space between items */
+  line-height: 1.2 !important;    /* better readability */
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+
+/* extra insurance: spacing between content inside list item */
+.list-item strong,
+.list-item span {
+  display: block !important;
+  margin-bottom: .5px !important;
+}
+
+    /* Back to Top button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 550px;
+      background-color: #9D2235;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      display: none;
+      transition: opacity 0.3s;
+      z-index: 100;
+    }
+
+    #backToTop.visible {
+      display: block;
+    }
+  </style>
+</head>
+
+<div id="id_gl8ShG6" data-componentid="gl8ShG6" class="WaLayoutContainer" style="margin-bottom:0px;background-color:#9D2235;"><table cellspacing="0" cellpadding="0" class="WaLayoutTable" style=""><tbody><tr data-componentid="gl8ShG6_row" class="WaLayoutRow"><td id="id_C5PG4Nx" data-componentid="C5PG4Nx" class="WaLayoutItem" style="width:100%;"><div id="id_uz3WyiW" class="WaLayoutPlaceHolder placeHolderContainer" data-componentid="uz3WyiW" style=""><div style="padding-top:20px;padding-right:10px;padding-bottom:10px;padding-left:10px;"><div id="id_vtBUNQb" class="WaGadgetFirst WaGadgetContent  gadgetStyleNone" style="margin-right:10px;margin-left:10px;background-color:#F2F9FA;" data-componentid="vtBUNQb"><div class="gadgetStyleBody gadgetContentEditableArea" style="padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;" data-editablearea="0" data-areaheight="auto"><h2 id="abstracts" class="mtg-hdr" style="text-align: center;">Contributed Content</h2>
+  <div class="filter-bar">
+    <div class="filter-group">
+      <label><strong>Search by Author:</strong></label>
+      <input type="text" id="author-search" placeholder="Enter author name...">
+    </div>
+
+    <div class="filter-group">
+      <label for="location"><strong>Location:</strong></label>
+      <select id="location">
+        <option value="">All</option>
+        <option value="Salon A">Salon A</option>
+        <option value="Salon B">Salon B</option>
+        <option value="Salon D">Salon D</option>
+        <option value="Salon DF">Salon D & Foyer</option>
+        <option value="Foyer">Foyer</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="type"><strong>Publication Type:</strong></label>
+      <select id="type">
+        <option value="">All</option>
+        <option value="Paper">Contributed Paper</option>
+        <option value="Lightning">Lightning Talk</option>
+        <option value="Poster">Poster</option>
+        <option value="Round">Round Table</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="date"><strong>Date:</strong></label>
+      <select id="date">
+        <option value="">All</option>
+        <option value="Monday">Monday Oct. 27th, 2025</option>
+        <option value="Tuesday">Tuesday Oct. 28th, 2025</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="time"><strong>Time:</strong></label>
+      <select id="time">
+        <option value="">All</option>
+        <option value="8">8:00am-9:30am</option>
+        <option value="10">10:00am-11:30am</option>
+        <option value="11">11:00am-12:00pm</option>
+        <option value="2">2:00pm-3:00pm</option>
+        <option value="5">5:00pm-6:00pm</option>
+      </select>
+      </div>
+
+    <button id="resetFilters">Reset Filters</button>
+  </div>
+
+  <ul id="location-list">
+    <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon A</b></span><br>
+<strong>Understanding Perceptions, Barriers, and Potential of Virtual Reality in the Mental Health Landscape: Graduate Student Perspectives </strong><br><br>
+<span class="author">Hripsime Mantecon - University of North Texas - <a class="mtg-link" href="mailto: hripsimemantecon@my.unt.edu" target="_blank">hripsimemantecon@my.unt.edu</a><br>Ana Cleveland, Sharad Sharma, Haihua Chen - University of North Texas</span><br><br>
+<span><b>Purpose:</b> We examine graduate students' coping mechanisms for academic anxiety, familiarity with VR, and perceptions of its potential as a mental health intervention. 
+<br><b>Methods:</b> A 14-question survey was distributed to 106 graduate students, with 82 responses. We assess demographics, academic anxiety levels, coping strategies, and VR perceptions. 
+<br><b>Results:</b> Students report coping with academic anxiety through social support (23%), music (17%), and watching videos (11%). 91% expressed openness to VR as a useful addition to traditional anxiety management methods. Preferred VR features include immersive environments (32%), breathing exercises (24%), and mindfulness tools (22%). Key barriers to VR adoption include cost (26%) and lack of familiarity (18%). A subset (n = 18) report moderate to high anxiety. Within this group, top coping strategies include social support (22%), music (19%), and overeating (10%). An 11% report VR as certainly useful, 78% view it as potentially helpful, and 100% are willing to try it. Top features included guided meditation (39%), breathing exercises (22%), and immersive environments (22%). Cost (44%) and difficulty operating VR (28%) were primary concerns. Gender analysis shows 27% of females are unfamiliar with VR, compared to 6% of males. 
+<br><b>Conclusions: </b>Graduate students rely on traditional coping strategies, but many see VR as promising. Cost and unfamiliarity remain barriers. Future research should focus on VR accessibility, usability, and customization.</span><li>
+
+        
+ 
+    <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="8">      
+    <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon A</b></span>
+      <br><strong>Promoting Greater Adherence to our Physical Fitness, A Case-Control Study with IMU Sensors and Machine Learning to Catalog Exercise </strong> <br>
+<span class="author">Ian Abeyta - University of North Texas - <a class="mtg-link" href="mailto: ianabeyta@my.unt.edu " target="_blank">ianabeyta@my.unt.edu </a>
+<br>Ana Cleveland, Marcus Taylor - University of North Texas<br></span><span><br>
+<b>Objective: </b>
+To develop a system of cataloging and archiving our exercises based on our own fitness levels. The system contains more information than a simple snapshot of time, it includes the full scope of our movement patterns in three spatial dimensions and through time. As well, machine learning is used to assess posture and technique to help prevent injury or improve sports performance.  
+<br><b>Methods: </b>Using a wearable device designed to capture human movement, a research design has been set up as a case-control study. The differences in exercises and overall fitness is measured between participants that wear the motion capture device (cases), and a similar population without the device (controls). Adults between ages 18 to 49 years were asked to perform 5 lower body exercises regularly for 6 weeks, after which time they will be reevaluated for changes in their fitness.  
+<br><b>Results: </b>Preliminary results indicate significant improvements in the quality of exercise technique among the cases compared to the control group. As well, initial machine learning outputs show less variation in movement patterns in the cases, the greater consistency in movement indicates improved muscular strength and endurance.  
+<br><b>Conclusions: </b>Consistent exercise is a well-established method for cultivating better health. The wearable device has shown that greater precision in movement is achievable by maintaining good habits, therefore we are confident that we are building better exercise habits for lifelong fitness.</span>
+    </li>
+
+ 
+    <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon A</b></span><br>
+<strong>
+Building a Practice of Slow Librarianship </strong><br>
+<span class="author">Christina Seeger - Sam Houston State University, Newton Gresham Library - <a class="mtg-link" href="mailto: seeger@shsu.edu" target="_blank">seeger@shsu.edu </a>
+<br>Melanie Sorsby - Medical Sciences Library - Texas A&M University 
+<br> Stefanie Lapka - University of Houston Libraries<br></span><span><br> 
+    The slow movement is an antidote to the hurried achievement culture we find ourselves in. Slow Librarianship rejects the notion that we can be all things to all people and do it well. By re-orienting our work to focus on relationship-building with colleagues and library-users alike, through learning and reflection, collaboration, and the valuing of contributions of all kinds, we can create positive change in the culture of our workplaces and better support our communities. Equity cannot be achieved in environments where burnout is normalized. Slow librarianship invites us to create more sustainable, humane workplaces where all librarians-not just the most privileged-can thrive.    
+<br> In equity-focused librarianship, success is not always measurable in traditional ways. Slow librarianship gives us permission to value reflection, transformation, and care. This session will introduce you to the philosophy and practice of Slow Librarianship and how the presenters have begun to implement it in our professional practices. Slow Librarianship offers a powerful counterpoint to systems that often reinforce speed, efficiency, and output at the expense of ourselves. </span>
+    </li>
+
+ 
+    <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon A</b></span><br>
+<strong>A Traveling Exhibits Project at an Academic Health Sciences Library </strong><br>
+ <span class="author">Deirdre Caparoso - University of New Mexico Health Sciences Library and Informatics Center - <a class="mtg-link" href="mailto: dcaparoso@salud.unm.edu " target="_blank">dcaparoso@salud.unm.edu </a>
+<br> Abbie Olivas - University of New Mexico Health Sciences Library and Informatics Center<br><br>
+</span><span>
+<b>Objective: </b>  To share how an academic health sciences library developed and implemented a program circulating exhibits featuring library archival materials and consumer health information to public libraries throughout the state.  
+<br><b>Description: </b>   An academic health sciences library was seeking a new way to engage with communities throughout the state. It was determined that traveling exhibits have the potential to build health information awareness and are an ideal opportunity to engage with a diverse array of community members via a self-directed activity. After applying for and receiving an internal institution grant, two custom exhibits were created on health-related topics that are both historic and timely. Exhibit materials include display panels, marketing materials, books that support exhibit subject matter and include consumer health information, as well as programming suggestions.  The library partnered with the state library to market the exhibits and ensure that they could reach all public libraries in the state via the state courier and delivery service. Since April 2025, both exhibits have been circulating and on display in public libraries throughout the state.  
+<br><b>Program Conclusions:</b> 
+Traveling exhibits are a unique way to share library materials and information with a wide variety of communities.  </span>
+    </li>
+
+ 
+    <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon A</b></span><br>
+<strong>Embedded, Exhausted, and Empowered: The Realities of Outreach Work in Community Clinics </strong><br>
+<span class="author">Jordan L. Ford - University of Arkansas for Medical Sciences - <a class="mtg-link" href="mailto: fordjordan@uams.edu" target="_blank">fordjordan@uams.edu</a>
+<br><br></span>
+<span>Health sciences librarianship in community-based clinical settings often demands more than subject expertise. It requires emotional labor, adaptability, and a deep commitment to relational outreach. This presentation offers a reflective exploration of what it means to be an embedded librarian in a safety net clinic that serves historically underserved populations. Rather than focusing on metrics or programming outputs, it examines how presence, continuity, and trust-building become core aspects of outreach work in environments shaped by social inequity, burnout, and system fatigue. 
+<br>This paper draws on lived experience and theoretical frameworks such as trauma-informed practice and critical hope to reframe library outreach as a form of care labor. It explores how the act of showing up, whether by answering student questions, co-creating patient education materials, or simply being present in clinic spaces, contributes to both community wellness and professional meaning. 
+<br>The presenter will reflect on strategies for staying grounded while navigating emotionally complex work, and will invite attendees to consider how they balance service and self-preservation in similarly intense environments. This presentation encourages wellness through a dialogue about the personal and professional realities of librarians who work at the intersection of health information, social justice, and community engagement. </span>
+    </li>
+       <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon B</b></span><br><b>HealthAdvisor: A Retrieval-Augmented AI Assistant for Accurate Trustworthy Health Response Generation </b><br>
+      <span class="author">Laxmigayathri Challa - University of North Texas - <a class="mtg-link" href="mailto: LaxmigayathriChalla@my.unt.edu " target="_blank">LaxmigayathriChalla@my.unt.edu </a>
+<br> Haihua Chen, Ana D. Cleveland, University of North Texas</span><br><br><span>
+<b>Objective: </b>
+ This study evaluates HealthAdvisor, a Retrieval-Augmented Generation (RAG)-based AI system designed to improve healthcare chatbot reliability by grounding responses in trusted medical sources. RAG integrates generative AI with real-time retrieval to reduce hallucinations and enhance contextual relevance. 
+<br><b>Methods: </b>Using randomized 2,000 XML documents from the MedQuAD, we retrieved the associated Q&A pairs and webpages, which were then cleaned and indexed for document retrieval. Meta-Llama-3.1-8B-Instruct generated responses, which were evaluated using BLEU, ROUGE, BERTScore, and human review, after filtering low-quality outputs via BERT-F1 threshold. 
+<br><b>Results: </b>The exact-match score was 0.0, reflecting consistent paraphrasing. BLEU and ROUGE were low due to limited lexical overlap, BERTScore was high (82.5%), indicating b semantic alignment. Brand-name drug queries performed best. However, one case exposed bias: the model incorrectly listed smoking as a risk factor for endometrial cancer, despite retrieved evidence identifying smoking as a preventive factor in certain clinical contexts. Even accurate claims-if presented without qualifiers or health warnings-can mislead. Contextualization is essential to prevent misinformation. 
+<br><b>Conclusions: </b> RAG improves relevance in health QA, but bias may prevail without context. Human oversight, better indexing, and ber LLMs can enhance trust and accuracy. HealthAdvisor shows scalable promise for reliable health information.</li> 
+    <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon B</b></span><br><b>Semi-Automatic Dental Taxonomy Construction with Human and Generative AI Collaboration </b><br><br><span class="author">Sai S. Donepudi - University of North Texas - <a class="mtg-link" href="mailto: SaiDonepudi@my.unt.edu " target="_blank">SaiDonepudi@my.unt.edu </a>
+<br> Haihua Chen, Ana D. Cleveland, Shivani Parimi, Raja Avinash Potula - University of North Texas<br><br></span><span>
+<b>Objective: </b>
+To evaluate and integrate diverse Generative AI (GAI) capabilities to generate a comprehensive, multi-level dental taxonomy. 
+<br><b>Methods: </b>
+A literature search was conducted in PubMed (2018-2023), 1577 articles were retrieved and 1252 articles were retained after cleaning. Keywords were extracted for articles lacking author-provided keywords using GAI. The data was then transformed into semantic embeddings, and clustered using a density-based algorithm. The taxonomy construction stage involved a GAI for concept mapping to label clusters and a separate GAI for taxonomy generation to build the multi-level hierarchy. Finally, the initial taxonomy underwent multiple cycles of expert-driven refinement using a GAI. 
+<br><b>Results: </b>
+In the keyword extraction phase, GAI-based method significantly outperformed the traditional automated method, demonstrating higher accuracy and recall in identifying relevant keywords from the dental literature. GAI also retrieved a larger proportion of relevant terms compared to author-assigned keywords. While initial GAI-generated taxonomies showed limitations in hierarchical depth and conceptual nuance, the iterative expert-in-the-refinement process improved their coherence, and clinical alignment. 
+<br><b>Conclusions: </b> 
+This study demonstrates a replicable, hybrid AI-human framework for multi-level dental taxonomy generation, directly contributing to trustworthy AI in health informatics (HI). It will be beneficial to dental informatics, IS and HI professionals.</span></li>
+    <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon B</b></span><br>
+<b>Use of Virtual Reality and Augmented Reality in Health Sciences Libraries: A Scoping Review </b><br><br><span class="author">Julia Reyes - University of North Texas - <a class="mtg-link" href="mailto: juliareyes3@my.unt.edu" target="_blank">juliareyes3@my.unt.edu</a>
+<br>Ana Cleveland,  Jodi Philbrick, Sharad Sharma, Haihua Chen - University of North Texas<br></span><span><br>
+<b>Objectives: </b>
+The objective of this scoping review was to generate a mapping of existing evidence on how Virtual Reality (VR) and Augmented Reality (AR) are used in health sciences libraries and on the issues involved in using this technology at health sciences libraries.      
+<br><b>Methods: </b>
+There was a preliminary search of the literature conducted on VR and AR use in health sciences libraries. The final search was conducted using the following databases: ProQuest MEDLINE, PubMed, Gale OneFile: Health and Medicine, Academic Search Complete, and ProQuest Health & Medical Collection. Journal articles were initially chosen according to the inclusion criteria by reviewing the abstract. Next, the articles chosen were further narrowed down to selection of journal articles that comply with the inclusion criteria after full text review.     
+<br><b>Findings: </b>
+Preliminary findings include a total of 38 articles initially found and narrowed down to 16 articles that complied with the inclusion criteria after full text review. The present lack of journal articles found on VR and AR use in health sciences libraries reveals a likely gap in the literature. We can infer that as the integration of VR and AR use at health sciences libraries increases, there may presumably also be a rise in research conducted.    
+<br><b>Results: </b>
+Results will be reported during the presentation.     </span></li>
+
+ 
+    <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon B</b></span><br>
+<b>Leveraging Project Management Platforms to Support Evidence Synthesis: A Practical Guide for Librarians </b><br><br><span class="author">Dani LaPreze - Texas A&M University - <a class="mtg-link" href="mailto: dani.lapreze@tamu.edu" target="_blank">dani.lapreze@tamu.edu</a><br>
+</span><span><br>Evidence synthesis projects – such as systematic, scoping, and mapping reviews – are complex undertakings that require organization, time management, consistent communication, and structured workflows. Librarians are uniquely positioned to support or lead these efforts, acting as both information experts and project managers. A quick PubMed search reveals the rapid growth in these types of reviews: in 2015 there were 15,309 relevant publications. In July of 2025, just halfway through the year, that number had already reached 23,947. As more researchers and doctoral students engage in evidence synthesis projects, the need for effective team coordination continues to grow.
+<br>Online and cloud-based project management tools can help streamline workflows, manage communication, and keep teams organized. By using these tools, librarians can create comprehensive team environments where resources and documents are centralized, and version control of protocols, search strategies, and data extraction forms can be easily maintained. When resources and communication are centralized, teams feel supported and informed.
+<br>This paper will explore Microsoft Teams and Google Workspace, demonstrating how these project management platforms can be adapted to fit the unique needs of evidence synthesis teams and projects. By leveraging familiar and accessible tools, librarians can offer a scalable, structured framework that enhances review services and supports successful project completion. </span></li>
+
+ 
+    <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon B</b></span><br>
+<b>Evaluating Prompting Strategies for Generating Structured Lung Cancer Staging Notes Using Large Language Models </b><br><br> <span class="author">Laxmigayathri Challa - University of North Texas - <a class="mtg-link" href="mailto: LaxmigayathriChalla@my.unt.edu" target="_blank">LaxmigayathriChalla@my.unt.edu </a>
+<br>Haihua Chen, Ana D. Cleveland, Dhruhi N. Patel, Jayasri Vinnakota - University of North Texas<br></span><span><br>
+<b>Objective: </b>
+This study evaluated the ability of a large language model (LLaMA-3 70B) to generate synthetic clinical staging notes for lung cancer. 
+<br><b>Methods: </b>
+Prompts were based on AJCC 8th edition TNM data and SNOMED CT terminology. Synthetic clinical staging notes were generated using six prompt types: zero-shot, one-shot, few-shot, template-based, terminology challenge, and bias check. Human reviewers rated outputs on six criteria (1-5 scale): correctness, completeness, readability, consistency, terminology, and conciseness. 
+<br><b>Results: </b>
+Template and one-shot prompts scored highest (correctness and completeness: 4-5/5; terminology: 4/5). One-shot prompts improved clarity (readability: 4/5), while free-form (zero-shot, terminology, bias-check prompts) outputs were verbose and less reliable (conciseness: 1-2/5). Bias-check prompts showed no demographic skew but lacked clinical detail. Structured prompts and low sampling temperatures improved output stability. Throughout, a recurring limitation was incorrect or missing SNOMED CT concept ID-even in otherwise accurate notes. 
+<br><b>Conclusions: </b> 
+Structured prompting enables LLaMA-3 70B to generate coherent and clinically accurate cancer staging notes. To address SNOMED CT ID errors, ontology-aware post-processing or concept-linking tools are needed. AI design, combined with human evaluation, can yield responsible, trustworthy documentation tools-supporting clinicians, researchers, and patients in increasingly complex lung cancer data ecosystem. </span></li>
+
+ 
+    <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="8">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 8:00-9:30am<br>
+      Salon B</b></span><br><b>Best Practices for Integrating AI in Evidence Synthesis Service </b><br><br><span class="author">  Margaret Foster - Medical Sciences Library, Texas A&M University -<a class="mtg-link" href="mailto: margaretfoster@tamu.edu" target="_blank"> margaretfoster@tamu.edu</a><br></span><span>
+<br>Artificial intelligence (AI) has significantly transformed evidence synthesis, prompting concerns regarding its reliability and integration into time-intensive processes. This presentation will detail standards for AI implementation as described in the Responsible AI in Evidence SynthEsis (RAISE) framework, alongside the newly released PRISMA-trAIce guidelines. The workflow for adopting AI includes: goal setting, tool selection, metric determination, piloting AI usage, process monitoring, and transparent reporting. Other topics addressed include validation procedures, transparency measures, and bias considerations, with a comparative analysis of traditional machine learning methods and large language models (LLMs). Attendees will receive a checklist of steps and criteria to consult when advising evidence synthesis teams, ensuring adherence to ethical and methodological standards in academic dissemination.</span></li>
+  <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon A</b></span><br><b>From Remedy to Record: Cataloging Pakistan's Ethnomedical Knowledge and Traditional Biomedical Systems: A Taxonomic Perspective </b><br><br><span class="author">Kinza Alizai - University of North Texas - <a class="mtg-link" href="mailto: kinzaalizai@my.unt.edu " target="_blank">
+kinzaalizai@my.unt.edu </a><br> Ana Cleveland, Ana Roeschley, Brain O'Conner - University of North Texas<br></span><span>
+<br>This research creates a taxonomy of Baloch herbs in Sibi, Pakistan, emphasizing oral traditions' role in preserving medicinal knowledge. It aims to standardize plant identification across regions and cultures, boosting international communication among researchers, healthcare workers, and indigenous groups. The study also seeks to conserve ancestral healing methods and cultural heritage by linking traditional uses with scientific frameworks.  
+<br> Based on Elfreda A. Chatman's 1991 theory, this research explores how marginalized groups find, exchange, and maintain information in small-world settings. Data from semi-structured interviews with twenty community members via snowball sampling were collected from July to August 2025 in Sibi, Balochistan. The study identified a wide range of indigenous herbs used by Baloch, nomadic, and diaspora groups like Pashtun, Tajik, and Kochi to treat headaches, digestive issues, joint pain, fever, and oral health problems. It revealed undocumented herbal knowledge, which will be compiled into a pictorial herbal dictionary, marking the first written record of these medicinal herbs in the area.  
+<br> Despite rich indigenous herbal knowledge, it is poorly documented and threatened by limited infrastructure, digital divide, flooding, and lack of preservation policies. The study stresses the urgent need to document and digitize traditional medicinal knowledge, proposing AI for community archiving in South Asia.</span> </li>
+ <li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon A</b></span><br><b>Collecting Hurricane Katrina Oral Histories: Amplifying Campus Voices </b><br><br><span class="author">Chandler D. Smith - Louisiana State University Health Sciences Center at New Orleans - <a class="mtg-link" href="mailto:csmi65@lsuhsc.edu " target="_blank">csmi65@lsuhsc.edu </a> <br></span><span><br>
+<b>Background: </b>A look at the process of the creation of an oral history project about Hurricane Katrina at LSU Health New Orleans Libraries
+<br><b>Description: </b>Hurricane Katrina was a major event for our campus and region. This year is a major anniversary of the event, and we wanted to memorialize the hard work, struggles and stories people had about Hurricane Katrina and its recovery. A search was done to see what oral histories had been done about Hurricane Katrina. Next, we checked with our Institutional Review Board (IRB) to see if approval was needed for the project. Our IRB determined that approval wasn’t needed, and the development of the questions to ask interviewees was started, keeping in mind that this was a traumatic event, questions were focused on how the interviewee’s job was impacted rather than their personal life. Our IT department was asked to generate a list of people in all departments who still worked at LSU Health New Orleans who had also worked at LSU Health New Orleans when Hurricane Katrina happened. People were contacted via email to participate. For people who had left LSU Health New Orleans they were tracked down manually and contacted via email. Once an interview is completed, interviews and their transcripts are edited, with help from a colleague. Interviews will be launched as a collection on our institutional repository and will be available to the public.   
+<br><b>Conclusions: </b>Satisfied with project so far, getting good participation. Interviews are still on going, key takeaways and findings will be discussed.</span> </li>
+ 
+<li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon A</b></span><br><b>Revisiting the 64th: Assessing and Updating a Historical Collection with New Technologies </b><br><br><span class="author">Elizabeth H. Holt - Louisiana State University Health Sciences Center at  New Orleans - <a class="mtg-link" href="mailto: eholt3@lsuhsc.edu" target="_blank">
+eholt3@lsuhsc.edu </a> <br></span><span><br>
+<b>Background: </b>
+In November 1940, the LSU Medical Center organized the 64th US Army General Hospital which went on to serve in the Mediterranean Theater of Operations from 1943 to 1945. In the early 1970s, former personnel and family members of that unit donated approximately 3000 items to a faculty member, and the LSUHSC-NO Libraries are now custodians of that historical collection. It comprises photographs, journals and newsletters, US Army reports and commendations, interview transcriptions, personal correspondences, and various ephemera. In 2011, the Libraries faculty and staff undertook the significant project of digitizing and describing the collection for publication and archiving purposes. In 2025, given the advances made in technology since the original project, it was decided to reassess both the physical and digital versions of the collection.
+<br><b>Description: </b>
+This presentation will detail the steps and tools used to conduct the assessment, as well as the purposes and results of any interventions taken. For example, several tasks were completed on the digitized documents to determine their quality and accessibility, and noteworthy images were uploaded to an online image search tool to discover geographical locations and descriptions. Some documents were uploaded to the institutional AI application to generate a sample synopsis and to test character recognition capabilities. A collection of photographs still mounted on scrapbook pages were removed, the versos scanned, and any descriptive text found there was added to the metadata. And finally, instances of acid burn and other potentially damaging factors within the physical collection were addressed.
+<br><b>Conclusions: </b> 
+Advances in technology and new standards in accessibility warranted a review of a historical institutional collection. The expectation that richer descriptions would be discovered proved true which benefits future researchers as well as the custodial institution. Assessments and interventions ensured the longevity of an important piece of institutional history while also preparing it for a wider audience.</span></li>
+ 
+<li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon A</b></span><br><b>Making our Way: How to Meet the New Web Accessibility Guidelines </b><br><br><span class="author">Julia M. Esparza - Louisiana State University Health Sciences Center at Shreveport - <a class="mtg-link" href="mailto: julia.esparza@lsuhs.edu" target="_blank">
+julia.esparza@lsuhs.edu</a> <br>  Julia Foley Bey, Aparna Chellapilla – LSUHSC Shreveport<br></span><span><br>
+<b>Purpose: </b>This paper describes one Library’s response to the upcoming 2026 American with Disabilities Act Title II changes on digital accessibility.   
+<br>  <b> Setting/participants/resources: </b>The Library at Louisiana State University Health Science Center at Shreveport formed a partnership with campus Medical & Strategic Communications.
+<br>  <b> Brief Description: </b>The Library learned about the 2026 American with Disabilities Act Title II changes during digital accessibility training in March 2025. Identifying that the Library had many resources that would need to be updated, they partnered with the Web Accessibility Coordinator from Medical & Strategic Communications to make extensive changes to the website, LibGuides, and other resources. In the process, the Library learned they also needed to meet new university system mandates on web design. Improvements in text size, clarity, and operability across our resources required a concerted effort. This workload was further increased by identifying web properties, collecting Voluntary Product Accessibility Templates from vendors, and other issues. We will share lessons from our small team that other libraries may apply, especially with limited time and personnel.
+<br><b>Results/Outcomes: </b> 
+XLouisiana State University Health Sciences Center at Shreveport Library has improved overall scores through the Siteimprove accessibility compliance software
+<br><b>Evaluation method: </b>Reports from Siteimprove, which our system is using to track accessibility progress.</span> </li>
+ 
+<li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon A</b></span><br><b>Tiger by the Tail: The Hospital Archivist's Role in a Retired Physician's Oral History Project </b><br><br><span class="author">Karen Vargas - Houston Methodist - <a class="mtg-link" href="mailto: kvargas@houstonmethodist.org " target="_blank">kvargas@houstonmethodist.org </a> </span><span><br>
+<br>When a retired doctor gives the archivist over 40 hours of (HIPAA non-compliant) oral history recordings, tells her to send them to a court reporter to transcribe, and then to send the transcriptions to each interviewee to be edited for a book, what is the best response? If the archivist were to do exactly as told, the court reporter would be reading personal patient health information. And if published, the resulting transcripts could make the hospital look bad. Having each interviewee edit their own interview without supervision would likely result in transcript quality ranging from those with no editing at all to those that were completely rewritten and bear no relationship to the original.
+<br>Questions to consider: How does one pick a transcriptionist? How and when will patients’ personal information be deleted from the recording and transcriptions? What department is handling the budget? Who is going to edit the transcripts? Isn’t there a more appropriate department in the hospital that can take this on? Can the archivist say ‘no?’
+T<br>his paper will walk through the answers to those questions as well as the procedures created and adapted to ensure that historical accuracy, HIPAA compliance, and coherent transcripts are completed under the care of the archivist. The paper will include a description of how this project complements the long tradition of oral history and transcriptions in the hospital and its library/archives.
+</span></li>
+ 
+<li class="list-item" data-location="Salon A" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon A</b></span><br><b>Aging Like Fine Wine: The Maturation and Evolution of Resource and Collection Management in Academic and Research Libraries </b><br><br><span class="author">Rachel Sherman - Louisiana State University Health Sciences Center at Shreveport - <a class="mtg-link" href="mailto: rachel.sherman@lsuhs.edu" target="_blank">rachel.sherman@lsuhs.edu</a></span><span> <br> 
+<br>This paper discusses how various adaptations and evolution have affected resource management services of the past decade in academic and research libraries as they support Raganathan's fifth law of library science: the library is a living organism. The literature reviewed focuses on the alterations of resource and collection management methods in various specialized academic libraries, with the central type being health sciences and medical libraries. 
+<br>The first portion will focus on the concepts of resource management services and their reorientation from departmental to functional library services. The second portion will center around the skill set required for resource and collection librarians and the increasing need for interpersonal skills for these professionals as their roles expand out from the library. The third portion challenges professionally educated librarians in resource and collection management as the shape of the services evolves outside of the traditional scope of technical services.</span>   </li>
+       <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon B</b></span><br><b>Creating a State-Wide Survey to Determine the Potential Impact of Federal Funding Changes </b><br><br><span class="author">Deirdre Caparoso - University of New Mexico Health Sciences Library and Informatics Center - <a class="mtg-link" href="mailto: dcaparoso@salud.unm.edu" target="_blank">dcaparoso@salud.unm.edu</a> <br></span><span><br> 
+<b>Objective: </b> To share how a state-wide survey was created and implemented to determine the potential impact of federal funding changes across the library landscape of a single state. 
+<br><b>Methods: </b>
+The past six months have seen multiple changes to federal library funding sources in the country. In late Spring 2025, a health sciences librarian created a survey to administer to all members of the state's library association. The survey, reviewed by an institutional review board, utilized 15 questions to collect quantitative and qualitative data from a wide variety of libraries and archives. Questions were designed to determine library type, the percentage of libraries utilizing federal resources, the types of funds utilized, how funds were utilized, and potential short- and long-term impacts of funding changes. The survey, created and administered via Qualtrics, was open between April 21 and May 9, 2025. 
+<br><b>Results: </b>
+The survey received 140 usable responses. Individual survey question response rates varied due to imbedded survey logic. The quantitative data has been processed and qualitative data review is ongoing. 
+<br><b>Conclusions: </b> 
+Survey results reveal that multiple library types in the state could face significant impacts to library operations if funding continues to be different from previous years. The consequences of funding changes vary between library types.  </span></li>
+<li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon B</b></span><br><b>The Evolving Approach to Student Orientation for a School of Allied Health </b><br><br><span class="author">David Duggar - Louisiana State University Health Sciences Center at Shreveport - <a class="mtg-link" href="mailto:david.duggar@lsuhs.edu" target="_blank">david.duggar@lsuhs.edu</a> <br></span><span><br> 
+<b>Purpose: </b> This paper describes the evolving approach to the new student orientation for a School of Allied Health Professions (SAHP) from May 2022 to June 2025 specifically looking at the changing role of the library and its staff.     
+<br><b>Brief Description: </b> Prior to 2022 the librarians were part of a traditional lecture-based summer semester orientation for new students in the SAHP held in the school auditorium. In 2022 the SAHP Director of Admissions changed orientation to a hybrid lecture and travel with activity modeled after The Amazing Race. The library had two stations highlighting resources and services. Two years later, with a brand-new building containing most of the offices for student services on campus, orientation returned to lecture mode in the new auditorium-in-the-round with library tours following student portraits. In 2025 after the new building glow had faded the SAHP Director of Admissions turned orientation over to the SAHP Director of Student Success and Retention with the goal to strengthen student success. Orientation was broken into three separate days over the semester's first three weeks with the library or its faculty involved in each day - first being campus lectures and tours; second being a resource fair; third being study and move.     
+<br><b>Conclusions: </b> 
+Looking ahead, the SAHP Director of Student Success and Retention plans to shorten this to two days in the first week maintaining the librarians' new roles. </span></li>
+ 
+<li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon B</b></span><br><b>Telehealth: An Academic Health Sciences Library and State Library Partnership </b><br><br><span class="author">Deirdre Caparoso - University of New Mexico Health Sciences Library and Informatics Center - <a class="mtg-link" href="mailto: dcaparoso@salud.unm.edu" target="_blank">dcaparoso@salud.unm.edu</a> <br></span><span><br> 
+<b>Objective: </b> To share how an academic health sciences library partnered with a state library program to develop a state-wide telehealth program.  
+<br><b>Description: </b>  In response to continued health care needs in a heavily rural state, an academic health sciences library and state library partnered to start delivering telehealth opportunities to rural public libraries.  The state library has provided the telehealth booths and technology needed by libraries and the academic health sciences library has advised the state library on consumer health needs, developed best practices and FAQs for public libraries, promoted the program to public libraries and other entities, and provided location libraries with consumer health information resources training, including information on telehealth delivery platforms and potential library programming.  A Network of National Library of Medicine award funded part of the training program.  This ongoing project has introduced telehealth capabilities to multiple diverse communities and is expected to continue to do so in additional communities in the next 18 months.   
+<br><b> Program Conclusion: </b> 
+Partnerships between multiple library types can be established and utilized to expand access to health information and care in rural communities. </span>   </li>
+<li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon B</b></span><br><b>What's in a Name? Re-evaluating Early Medical Library Leaders in a Modern Context </b><br><br><span class="author">Jennifer K. Lloyd - Louisiana State University Health Sciences Center at New Orleans - <a class="mtg-link" href="mailto:jlloyd@lsuhsc.edu" target="_blank">jlloyd@lsuhsc.edu
+</a> <br></span><span><br> 
+This paper will highlight two early medical librarians, Mary Louise Marshall (1893-1986) and William D. Postell, Sr (1908-1982) who were in our chapter's region, although during their careers, SCC did not exist. While we cannot expect that historical figures have the same knowledge and values as our contemporary colleagues, we can evaluate their writings to see what internal biases were present.   
+<br> Critically reappraising the work of our predecessors can be a difficult task, especially if these individuals were held in high esteem, won national awards and published important papers about medical librarianship. However, as theories are repudiated, re-evaluation is key.   
+<br> A brief biographical sketch of both librarians will be offered, as well as analysis of their publications. The process by which SCC is considering renaming the Postell scholarship will also be discussed. </span></li>
+ <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon B</b></span><br><b>Sedimentary, My Dear Watson: Layered Feedback for EBM Assignments </b><br><span class="author"><br>Melanie Sorsby - Texas A&M University - <a class="mtg-link" href="mailto: melanie.sorsby@tamu.edu " target="_blank">melanie.sorsby@tamu.edu </a>
+<br></span><span><br>
+As librarians we do a lot of one-shot information literacy sessions where we don't always get a chance to see the impact of our instruction. This makes it difficult to identify learning gaps and areas for improvement. One potential strategy to address this gap is establishing multiple touchpoints throughout the curriculum, even short ones, focusing on one or two evidence-based practice skills at a time. These touchpoints can be followed by targeted assessments to measure student learning, skill development, and inform future instruction.  In this session, I will talk about how my library instruction has been integrated into the preclerkship curriculum at Texas A&M University School of Engineering Medicine and how my assessment of student learning and the opportunity to provide feedback has informed a more iterative approach to instruction.</span> </li>
+ <li class="list-item" data-location="Salon B" data-type="Paper" data-date="Tuesday" data-time="10">
+      <span style="text-align: right;"><b>Contributed Paper<br>
+      Tuesday Oct. 28th, 2025 10:00-11:30am<br>
+      Salon B</b></span><br><b>Authentic Assessment and AI - A Case Study </b><br><br><span class="author">Stewart Brower - University of Oklahoma-Tulsa - <a class="mtg-link" href="mailto:stewart-brower@ouhsc.edu" target="_blank">stewart-brower@ouhsc.edu</a><br></span><span><br>
+Authentic assessments gauge a student's ability to apply classroom knowledge in real-world contexts, demonstrating their understanding of complex ideas through performance-based outcomes. In the University of Oklahoma elective, LIS 5243 - Comics & Graphic Novels, both the midterm and final assignments must be submitted in comic book format. Instead of standard written essays or tests, students use the tools and techniques of cartooning. They demonstrate their understanding of sequential art by creating original comics that meet the assignment criteria. This presentation will examine the unique textual and visual elements of comics and explore whether commonly-used AI tools can replicate these outputs. In other words, can someone with no real knowledge of comics pass this authentic assessment by using AI? We will also explore the potential for collaboration between instructors and librarians in developing true authentic assessments for their courses.</span> </li>
+            <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Experiencing the whole systematic review process: bridging our knowledge gap</b><br><br><span class="author">Gwen Wilson - Mayo Clinic Libraries — <a class="mtg-link" href="mailto:wilson.gwen@mayo.edu" target="_blank"> wilson.gwen@mayo.edu </a> <br>Tara Brigham, Stephanie McFarland, Michele McGinnis, Cynthia Chelf, Jennifer Schram, Lisa Marks, Dana Gerberi, Larry Prokop, Leslie C Hassett, Heather Jett, Tariq Rahaman <br></span><span><br>
+<b> Background: </b>Librarians typically support evidence synthesis projects through search design, record retrieval, methods reporting, and reviewing manuscripts. They do not often participate in writing protocols, creating inclusion/exclusion criteria, or screening records. A librarian-led professional development program was designed to broaden understanding of what is required of research teams to complete these time-consuming projects. 
+<b> Objective: </b>To (1) deepen librarians' understanding and skills across all systematic review (SR) stages, (2) provide hands-on experience using Covidence, and (3) enhance librarians' ability to advise research teams. 
+<b> Methods: </b>Two librarians designed a 12-week program to guide a team of colleagues through each stage of a SR project. The leads selected a review topic, drafted a protocol, ran a search, and imported results into Covidence. The group collaboratively refined the protocol, set inclusion/exclusion criteria, completed study selection, risk of bias assessment, and data extraction. A pre- and post-program Likert-scale questionnaire assessed changes in participant's confidence. 
+<b> Results: </b>All participants reported increased confidence in every stage of the SR process. Participants valued the opportunity to experience the SR process from a research team's perspective. 
+<b>Conclusion: </b>The program successfully met its objectives and highlighted the benefits of an immersive, practice-based learning program for librarian professional development. </span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Enhancing extreme multi-label medical concept normalization with LLM-based data fusion and quality improvement</b><br><br><span class="author">Yuhan Zhou  - University of North Texas - <a class="mtg-link" href="mailto: yuhanzhou@my.unt.edu " target="_blank"> yuhanzhou@my.unt.edu </a> <br>Haihua Chen, Ana D. Cleveland - University of North Texas <br></span><span><br>
+<b> Background: </b>  As an extreme multi-label task, Medical concept normalization (MCN) spans more than 5,000 categories. It is challenged by many-to-many mappings of phrase-concept pairs, long-tailed and imbalanced datasets, labeling ambiguity, and other overlooked data quality issues. 
+<b> Objective: </b> To propose a quality-aware, multi-source data fusion framework that integrates heterogeneous MCN corpora while improving their quality. 
+<b> Methods: </b> This study collects six MCN datasets built on social media phrases, with around 45,000 phrase-concept pairs in total. We evaluate each dataset on four quality dimensions: correctness, coverage, class imbalance, and comprehensiveness, and then employ ChatGPT zero-shot and few-shot prompting for data quality improvement. Finally, we propose an adaptive weighting mechanism to reconcile candidate phrase-concept pairs from different data sources. 
+<b> Results: </b> Experiments show that existing datasets present data quality issues, such as long-tail problems. By augmenting phrase-concept pairs, the data quality could be improved. Models trained on our fused dataset could achieve statistically significant F1 score improvements over single-source baselines. 
+<b> Conclusions: </b>  Our data fusion approach reduces MCN dataset development costs, improves synonym disambiguation, and mitigates medical data imbalance. Overall, it enhances applications such as electronic health record (EHR) management, drug discovery, and information retrieval by tuning the terms used in searches.</span> </li>
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Unlocking Social Services: Navigating FindHelp.org </b><br><br><span class="author">Dana Abbey - University of Colorado Anschutz Medical Campus - <a class="mtg-link" href="mailto: dana.abbey@cuanschutz.edu" target="_blank">dana.abbey@cuanschutz.edu</a> <br>George Strawley, University of Utah; Faith Steele, University of Maryland Baltimore <br></span><span><br>
+Libraries are increasingly playing a vital role in connecting community members with social services, serving as trusted access points for individuals facing housing insecurity, food scarcity, healthcare needs, and other critical challenges. However, the growing complexity of eligibility requirements and accessibility barriers for these services creates significant challenges for both library staff and patrons seeking assistance.    This session explores FindHelp.org®, a free, comprehensive web-based platform designed to bridge the gap between individuals and social services across communities nationwide. Through systematic evaluation, this assessment examines the strengths and limitations of FindHelp.org®, particularly analyzing its potential as a practical resource for library staff assisting patrons with unmet social needs.    
+<br>Key findings highlight the platform's extensive database covering over 10 essential service areas including housing assistance, food programs, healthcare resources, employment support, and emergency financial aid. The platform features an intuitive, user-friendly interface with robust multilingual support, making it accessible to diverse populations. Advanced search capabilities allow filtering by location, eligibility criteria, and specific needs. The session will also address limitations such as limited service listings in rural areas and eligibility requirements.     
+<br>Overall, FindHelp.org® emerges as a valuable digital tool for libraries, social workers</span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Navigating Solo Librarianship in a Health Sciences Setting </b><br> <br><span class="author">Emily Roberts—University of New Mexico - <a class="mtg-link" href="mailto: emiroberts@salud.unm.edu " target="_blank"> emiroberts@salud.unm.edu </a> <br></span><span><br>
+Solo librarianship can be both rewarding and isolating, especially in a specialized health sciences environment where the librarian is responsible for a full spectrum of services. I will discuss my experiences of solo librarianship at one of only a handful of special libraries dedicated to developmental disabilities in the United States. This unique setting required balancing niche subject expertise, information literacy instruction, and user advocacy, all while navigating limited resources and institutional visibility. I will discuss the importance of leveraging cross-departmental relationships, partnering with broader library networks, and explore how to advocate for library services in a clinical and research-focused environment. I will also address challenges like professional isolation, workload, and keeping pace with trends in medical librarianship without a team. This talk will interest attendees who are solo librarians or who work with them in academic, hospital, or research settings. Attendees will gain practical strategies for managing competing demands, raising the library's profile, and maintaining professional growth in independent roles.</span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Can AI-Powered Translation Programs Help Mitigate English-Language Bias in Systematic Reviews? </b><br><br><span class="author">Erin Ware - Louisiana State University Health Sciences Center at Shreveport - <a class="mtg-link" href="mailto: erin.ware@lsuhs.edu " target="_blank">erin.ware@lsuhs.edu </a> <br></span><span><br>
+Although reported numbers vary, the majority of systematic reviews either implicitly or explicitly exclude articles that are not written in English. If there were an accepted, validated way to easily include non-English articles in evidence synthesis, without the cost and difficulties associated with human translation, this bias could be minimized, which would hopefully lead to higher quality, more inclusive systematic reviews.  Language translation programs have greatly improved due to advances in machine learning and natural language processing. Have they come far enough to be useful translating non-English articles for inclusion in systematic reviews? This Lightning talk will discuss the first step in this ongoing project.    
+<br>Articles and conference abstracts identified in systematic reviews taking place at X that were included in full text screening were included if they were not in English. An additional inclusion criterion was that each article was freely available on the internet, and thus eligible to be uploaded to an AI translation program. Each article was translated using two machine language translation programs. The first step was to determine whether the translations were readable and if both translations agreed with the other. Future steps will include translation by a native speaker of the original language of each article, determining if the translations are sufficient for data extraction, and an analysis of free tools vs. paid tools vs. human translation. </span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Sometimes It's Good to be Infectious:  Spreading Knowledge About the Library and Its Services </b><br><br><span class="author">Jill D. Whitfill - University of Texas Southwestern Medical Center - <a class="mtg-link" href="mailto: jill.whitfill@utsouthwestern.edu" target="_blank">jill.whitfill@utsouthwestern.edu </a> <br></span><span><br>
+Liaison activities in academic libraries have evolved significantly, adapting to the changing needs of their user communities. This presentation highlights the role of a liaison librarian supporting a School of Public Health, showcasing strategies that foster engagement, visibility, and impact, including:
+<br><b>•	Engagement: </b>Fostering strong relationships with students and faculty through workshops, events, consultations, and proactive communication, while sharing regular updates on library resources and services to reinforce its relevance and value.
+<br><b>•	Teaching and Learning: </b>Collaborating with faculty to deliver the targeted instruction their students need to succeed.
+<br><b>•	Resource Curation: </b>Identifying, evaluating, and promoting specialized books, journals, databases, datasets, and tools relevant to public health disciplines.
+<br><b>•	Research Support: </b>Providing tailored assistance for literature reviews, systematic reviews, data management, and publication strategies.
+<br><b>•	Scholarly Communication: </b>Supporting faculty and students in navigating open access, copyright, article processing charges, open educational resources, and predatory publishing.
+<br>By adapting to new challenges and leveraging data-driven strategies, liaisons enhance the educational and research missions of their institutions. Attendees will leave with adaptable ideas for building relationships, increasing visibility, and aligning library services with the dynamic needs of their own academic communities.
+</span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk<br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Using Labels to Maximize Rayyan During Scoping Reviews: Work Smarter, Not Harder </b><br><br><span class="author">Joanna Russell Bliss - Texas Woman's University – Dallas - <a class="mtg-link" href="mailto: jbliss3@twu.edu " target="_blank">jbliss3@twu.edu </a> <br></span><span><br>
+Relying solely on researchers' votes to track the inclusion and exclusion of resources during a scoping review can lead to missed titles during rounds of review, and a headache when it comes to building your PRISMA diagram. Using the labels in Rayyan to track inclusion and exclusion during each round, as well as for tracking concepts and reasons for inclusion and exclusion, simplifies gathering the data for the manuscript by putting the information in an efficient package.</span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>The Systematic Review Cattle Drive: Wrangling Evidence Synthesis Instruction and Services at Our Institution </b><br><br><span class="author">John Carter - University of Texas Southwestern Medical Center - <a class="mtg-link" href="mailto: john.carter3@utsouthwestern.edu" target="_blank">john.carter3@utsouthwestern.edu</a> <br>Elizabeth Barksdale - UT Southwestern <br></span><span><br>
+As the landscape of evidence synthesis has grown increasingly complex and the demand for supportive services continues to increase, our education team transitioned from a single instruction session on systematic reviews to a three-part series titled Evidence Synthesis Essentials in Spring 2025. This redesigned instruction provided more targeted guidance across the evidence synthesis research cycle, from protocol development to comprehensive literature searching to screening and data synthesis. This transition reflected a longer, broader shift in library evidence synthesis practices and policies, including improvements to our corresponding resource guide and active contributor intake form based on AAHSL data. This presentation will discuss the rationale and implementation of these changes, offering insights into instructional effectiveness, collaboration across library departments, and how other institutions might better support evidence synthesis research.</span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br>
+      <b>Unleash Your Inner Rock Star: Promote, Collaborate, and Innovate with Creative Commons </b><br><br><span class="author">Karen Williams - University of North Texas 2025 Graduate - <a class="mtg-link" href="mailto: kwilliams@gvtc.com" target="_blank">kwilliams@gvtc.com</a> <br>Shanna Hollich - Learning and Training Manager - Creative Commons - <a class="mtg-link" href="mailto: shanna@creativecommons.org " target="_blank"> shanna@creativecommons.org </a> <br></span><span><br>
+With individuals accessing and utilizing health and wellness information for personal use or educational purposes, the collaboration of original creators to utilize Creative Commons (CC) with their works can allow enhancement, increase accessibility, and may reduce cost of accessibility of information by others.  From early career medical librarians to organizations wanting to allow a wider dissemination of research, educational materials, and other resources, these enhanced copyright options for sharing and reusing open access, medical information, images, illustrations, and data sharing with permissions, attributions, commercial or non-commercial allowances, and adaptations with respect to original copyright licensing.  Creative Commons offers a Certificate Program for Academic Librarians to help amplify and unlock the inner Rock Star medical librarian to be aware and build upon publishing information skills and knowledge of open educational resources (OER) and open access (OA) by researchers and colleagues.  Great for a refresher, learn to promote, collaborate, and innovate with fellow colleagues. Creative Commons offers a 10-week program with in-depth information on the history of Creative Commons, copyright law, CC license anatomy, usage of CC licenses and considerations, plus intuitive insight to help understand and put CC licensing utilization knowledge into practice.  Rock away with a playlist of opportunities to share with colleagues interested in Creative Commons.</span></li>
+ 
+       <li class="list-item" data-location="Salon B" data-type="Lightning" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Lightning Talk <br>
+      Tuesday Oct. 28th, 2025 2:00pm-3:00pm<br>
+      Salon B</b></span><br><b>Stepping into Someone Else's Shoes </b><br><br>
+      <span class="author"> Montie T. Dobbins - Louisiana State University Health Sciences Center at Shreveport - <a class="mtg-link" href="mailto: montie.dobbins@lsuhs.edu " target="_blank">montie.dobbins@lsuhs.edu </a> <br></span><span><br>
+A talk about the experience of taking on a leadership role in an academic library. What is it like stepping into your supervisor's old shoes, helping the person who took on your former position fill your shoes, and finding the right fit for everyone? </span></li>
+
+    <li class="list-item" data-location="Salon A" data-type="round" data-date="Tuesday" data-time="2">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 2:00-3:00pm<br>
+      Salon A</b></span><br>
+<strong>Let's Talk about LibAnswers in SpringShare  </strong><br>
+<span class="author">David Duggar - <a class="mtg-link" href="mailto: david.duggar@lsuhs.edu " target="_blank"> david.duggar@lsuhs.edu</a> <br></span><span><br>
+There are many modules offered by SpringShare. Are you using LibAnswers at your library? Did you incorporate LibChat with it? Are you using it to record phone and in-person interactions, not just online or email? Share your experiences with LibAnswers at this roundtable with colleagues (like the facilitator) looking at implementing this SpringShare module and those who already have it active. </span><li>
+
+
+    <li class="list-item" data-location="Salon B" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Salon B</b></span><br>
+<strong>Outreach Rx: Marketing Roundtable Ideas That Work SpringShare  </strong><br>
+<span class="author">Amanda Okandan - <a class="mtg-link" href="mailto: aokandan@phs.org" target="_blank"> aokandan@phs.org</a> <br></span><span><br>
+Looking for new ways to spread the word about your library? Join us for Outreach Rx, a relaxed, idea-sharing roundtable focused on real marketing strategies that actually work. We'll swap tips on everything from eye-catching flyers and elevator pitches to building relationships with busy clinicians and making your services visible across your organization. Bring your success stories, your questions, and even your marketing flops-we're all here to learn from each other. </span><li>
+
+
+    <li class="list-item" data-location="Salon B" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Salon B</b></span><br>
+<strong>Let's Talk About Marketing! SpringShare</strong><br>
+<span class="author">Katie Prentice - <a class="mtg-link" href="mailto: katie.prentice@library.tmc.edu " target="_blank">katie.prentice@library.tmc.edu</a> <br></span><span><br>
+Interested in marketing your library? Are you handling digital signage, social media, swag selection, or newsletters and collaborating with colleagues inside the library or within your institution? Bring your questions, ideas, success stories, and challenges to share with SCC/MLA colleagues. This roundtable will provide opportunities to explore and learn with colleagues about everything marketing for our libraries. </span><li>
+
+
+    <li class="list-item" data-location="Salon D" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Salon D</b></span><br>
+<strong>Integrating AI into Health Sciences Libraries: Practical Insights and Collaborative Strategies SpringShare  </strong><br>
+<span class="author">John Carter - <a class="mtg-link" href="mailto: John.Carter3@UTSouthwestern.edu " target="_blank"> John.Carter3@UTSouthwestern.edu </a> <br> Jill Whitfill, Cathy Nakashima
+<br> </span><span><br> 
+Artificial Intelligence (AI) is rapidly reshaping how medical information is accessed, organized, and disseminated. This roundtable aims to provide practical, actionable insights across six areas:<br>
+1.	Institutional Involvement: How has your institution approached AI?<br>
+2.	Library Involvement: What has been your library’s approach to AI?<br>
+3.	Workflow Integration: How has your library (and its patrons) integrated AI into daily operations and larger projects?<br>
+4.	Tool Exploration and Evaluation: What types of AI tools are you exploring as a library?<br>
+5.	Continuing Concerns & Ethics*: What are your continuing concerns about the use of AI in libraries, research, and academia?<br>
+6.	Collaboration & Capacity Building*: How can libraries collaborate across institutions to share AI resources, expertise, and best practices?
+<br>Through open dialogue, participants will share current and emerging projects, explore ethical considerations, and discuss practical implementations. The session will also examine the evolving role of health sciences librarians in an AI-augmented environment. By fostering cross-institutional exchange, this roundtable seeks to highlight best practices and identify opportunities for collaboration in shaping the future of AI integration in healthcare information services.
+*These areas will be covered if time permits. </span><li>
+
+
+    <li class="list-item" data-location="Salon D" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Salon D</b></span><br><br>
+<strong>AI in Evidence Syntheses Services SpringShare  </strong><br>
+<span class="author">Margaret Foster - <a class="mtg-link" href="mailto: margaretfoster@tamu.edu" target="_blank"> margaretfoster@tamu.edu</a> <br></span><span><br>
+Recently, across a variety of platforms some researchers or tool developers claimed to conduct systematic reviews in short periods of time using AI tools. This myth grows with clients of evidence synthesis services. This is a chance to share experiences with AI in Evidence Synthesis Services. There are so many questions to consider: What are the questions clients have? What has been effective? What tools are available at your institution? How are you trying to keep up with AI related to evidence syntheses? What the implications for publishing? What the considerations for the quality/rigor of the review? </span><li>
+
+
+    <li class="list-item" data-location="Foyer" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Foyer</b></span><br>
+<strong>Getting The Most Out of Your Professional Library Associations SpringShare  </strong><br>
+<span class="author">Jennifer Lloyd -<a class="mtg-link" href="mailto: jlloyd@lsuhsc.edu " target="_blank"> jlloyd@lsuhsc.edu </a> <br></span><span><br>
+Navigating the professional world of association work can be challenging. Let's discuss how to get involved. How to succeed. And how our professional work can improve our work in our home libraries. National, Regional, State and even local groups will be discussed.
+</span><li>
+
+    <li class="list-item" data-location="Salon A" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Salon A</b></span><br>
+<strong>Amped up for Assessment: A Conversation about Librarians' Roles in Student Learning Assessment SpringShare  </strong><br>
+<span class="author">Kathy Carter - <a class="mtg-link" href="mailto: kathy.carter@tamu.edu " target="_blank"> kathy.carter@tamu.edu </a> <br>Melanie Sorsby, Amy Martin-Klumpp,  Angelique A. Lackey <br><br> </span><span>
+Join us for an engaging conversation about librarians' roles in evaluating student learning outcomes. In this round table discussion, we will discuss the benefits and challenges of librarian involvement in assessment; important considerations for librarians preparing for assessment roles; and best practices and tools for measuring learning progress.   
+<br>Facilitators will kickstart the conversation with a brief background highlighting their recent opportunities, dilemmas, and lessons learned. The session will then progress to a guided exchange of ideas on the following topics: clarifying and negotiating your role; considerations around grading guidelines and program accreditation; assessment methods and tools; and professional development opportunities and resources.    
+<br>This session will use universal design allowing for anonymous, verbal, or text participation, so everyone can engage in ways that suit their preferences. BYOD! Please bring a device to follow along and to share your ideas and experiences online if you prefer. 
+<br>All are welcome! Whether you're new to assessment or an experienced library instructor, join us to connect with colleagues and gain new insights, tools, and tips for your work.  
+</span><li>
+
+    <li class="list-item" data-location="Salon A" data-type="round" data-date="Tuesday" data-time="5">
+      <span style="text-align: right;"><b>Round Table<br>
+      Tuesday Oct. 28th, 2025 5:00-6:00pm<br>
+      Salon A</b></span><br>
+<strong>Cultivating a Thriving Environment: Integrating JEDI Principles with Workplace Wellness SpringShare  </strong><br>
+<span class="author">Kenya Iverson - <a class="mtg-link" href="mailto: kenya.iverson@lsuhs.edu" target="_blank"> kenya.iverson@lsuhs.edu</a> <br></span><span><br>
+<b>Objectives: </b>This roundtable aims to explore the critical intersection of Justice, Equity, Diversity, and Inclusion (JEDI) principles with workplace wellness initiatives in library environments. Participants will discuss how fostering JEDI values directly contributes to a healthier, more supportive, and productive work culture for all.
+<br><b>Methods: </b>The session will facilitate an interactive dialogue among attendees, drawing on diverse experiences and perspectives. Key themes will include defining JEDI in a library context, identifying common workplace wellness challenges, and exploring practical strategies for integrating JEDI principles into wellness programs. The discussion will encourage sharing of successful practices and identification of potential pitfalls. 
+<br><b>Results: </b>Expected outcomes include a shared understanding of the symbiotic relationship between JEDI and workplace wellness, actionable insights for implementing inclusive wellness strategies, and a collaborative identification of resources and best practices. Participants will gain practical takeaways to enhance their own institutional efforts.
+<br><b>Conclusions: </b>By actively integrating JEDI principles into workplace wellness frameworks, libraries can cultivate environments where all staff feel valued, respected, and supported, leading to improved morale, retention, and overall organizational success. This roundtable will underscore the imperative for holistic approaches to staff well-being. </span><li>
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Developing an Information Literacy Instruction Survey for Nursing Students  </strong><br>
+<span class="author">Emily Roberts - University of New Mexico Health Sciences Library and Informatics Center -  <a class="mtg-link" href="mailto: emiroberts@salud.unm.edu " target="_blank">emiroberts@salud.unm.edu </a><br></span><span><br>
+
+<b>Objective: </b>This project aims to develop a survey to assess the experience of nursing students across various programs with information literacy (IL) instruction. In addition to collecting data on instructional exposure, the survey will gather students' self-assessed proficiency in core IL skills, with particular attention to identifying misinformation and recognizing personal bias. A key objective is to explore what relationships may exist between self-perceived IL competency and factors such as previous IL instruction, educational background, work experience, and the recency of instruction. The poster will outline the planning and development process involved in creating and piloting the survey.    
+<br><b>Methods: </b>The research draws on a review of existing literature on IL instruction and competency surveys in nursing and other health sciences education. Best practices in survey design-question formulation, validation, pilot testing, and distribution strategies-are used to guide instrument development. Feedback from nursing faculty and librarians informs revisions.    
+<br><b>Results: </b>As research is ongoing, survey results are not yet available. Early insights from the design and planning phase will be shared.    
+<br><b>Conclusions: </b>This work will contribute to a deeper understanding of nursing students' IL development and supports creating more targeted instruction. It also lays the groundwork for future research exploring nursing students' relationship to health misinformation.  </span>
+    </li>
+
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Exploring Generative AI in Health Sciences Education: A Qualitative Snapshot from a Multisite Study  </strong><br>
+<span class="author">Laura Hall - University of New Mexico Health Sciences Library and Informatics Center - <a class="mtg-link" href="mailto: ljhall@salud.unm.edu " target="_blank">ljhall@salud.unm.edu </a><br>
+Robyn Gleasner - University of New Mexico Health Sciences Library and Informatics Center<br></span><span><br>
+<b>Background: </b>This study was part of a national initiative involving 19 institutions exploring the effects of generative AI (GAI) in teaching, research, and academic practice. At University of New Mexico interviews were conducted with health sciences faculty to examine emerging uses of GAI in education, research, and service, and to surface opportunities and tensions in adoption.  
+<br><b>Objectives: </b>To explore faculty perceptions, uses, and concerns related to GAI in teaching and research, and to identify support needs while navigating this evolving landscape. 
+<br><b>Methods: </b>Semi-structured interviews were conducted via Zoom with faculty from five health disciplines. Transcripts were analyzed using an emergent, in-vivo coding process to identify themes related to GAI familiarity, use, and needs.
+<br><b>Results: </b>Faculty expressed both enthusiasm and caution. Uses included diagnostic support, simulation design, and assignment redesign. A key theme was the integration of “practice”– the closeness of clinical work to education and research shaped how participants evaluated GAI’s potential, risks, and relevance. This also fueled conversations about preparing students not just for current competencies, but for future demands.
+<br><b>Conclusions: </b>Faculty are exploring GAI while navigating ethical concerns, tool limits and the pace of change. Preparing students for AI-enabled practice was a central concern. Institutions must foster responsible experimentation and meet the evolving demands of academic health fields.</span>
+    </li>
+
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Integrating Digital Archives & Scholarship: Raising Awareness of Library Historical Collections  </strong><br>
+<span class="author">Alice Sherwood – Texas Medical Center Library - <a class="mtg-link" href="mailto: alice.sherwood@library.tmc.edu " target="_blank">alice.sherwood@library.tmc.edu </a><br></span><span><br>
+
+Since 2022, The TMC Library started using Digital Commons Exhibits, adding 15k items to its 18yr institution repository to include more library archival materials. Traffic of archival collections jumped from 4k, 36k to 107k downloads in 2024, bringing greater impact to not only archives, but the entire library community. Our Head of Archivist & Special Collections Librarian at McGovern Historical Center has commented that to track their statistical usage, a separate space was needed to track Digital Common was needed, which shows how much folks worldwide access materials via Digital Commons.     
+<br>
+Other beneficial impacts have been identified since additional archival materials have been integrated within our institutional repository. Other than more people who have been accessing McGovern Historical Center using their services and materials, The TMC Library has noticed changes since more download traffic has been noticed on our institutional repository. In general, more foot traffic, in terms of students using our library services, study rooms, as well as our research materials have also increased.     
+<br>
+To date, The TMC Library has been utilizing Digital Commons since 2005, starting at 2 articles in 2005, and the library has reached 2 million download milestone in January 2024. We are looking forward to reaching our next milestone when we get to the next milestone! </span>
+    </li>
+
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Collaboration in Research Support: The Creation of a Systematic Review Learning Module  </strong><br>
+<span class="author">Aundria Parkman - Tulane University - <a class="mtg-link" href="mailto: aparkman@tulane.edu" target="_blank">aparkman@tulane.edu</a><br></span><span><br>
+
+Systematic reviews are an essential part of the research landscape, and their presence in academia needs support from its libraries. In late 2024, librarians identified a need for comprehensive systematic review instruction on campus. The systematic review learning module was developed as a solution, providing systematic review instruction through a research Canvas course hosted by the library. Its intent is to bridge the needs of many departments on campus, and its objectives are to bring key resources to the classroom and to those teaching systematic reviews through content to be used by students, faculty, and staff as a means of educational support through asynchronous content. The module serves the entire university including disciplines outside of the health sciences. It was a collaboration with project members contributing conjointly to its layout and planned content.  In total, the module was composed of thirty-two pages comprised of text, graphs, tables, illustrations, and videos. The material for each page of the module was developed individually by team members then combined focusing on fluidity. The Canvas module was constructed in a stand-alone, step-by-step format and was centered around the systematic review process. The author produced sections of the module on topics such as citation management, data extraction, and critical appraisal. The module is currently undergoing evaluation and user testing, with university-wide publication set for Fall 2025.  </span>
+    </li>
+
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Developing an Institutional Repository and its Potential Impact on Academic Success  </strong><br>
+<span class="author">Brittany Carter - Arkansas Colleges of Health Education - <a class="mtg-link" href="mailto: brittany.carter@achehealth.edu " target="_blank">brittany.carter@achehealth.edu </a><br></span><span><br>
+
+Traditionally, institutional repositories have been a way to collect and maintain intellectual scholarship within an open and free environment. These types of records typically include journal articles, conference papers, data sets, theses, dissertations, and other forms of research. Not only does this help preserve the history of the institution it represents but it is also a way to contribute to open-access initiatives for the general public and contribute to the global research community. From choosing a software provider to offering DOIs to those depositing their items, we not only wished to make the same contributions but hoped to inspire our students in their own research endeavors. However, some of our students have taken the initiative to utilize the repository to empower themselves academically. After proposing to deposit study guides, our department has teamed up with this group to create a series of exams that will feature answer keys with rationales and include outside links for those wishing to test their knowledge. By doing this, we ope to promote and empower learning within health sciences across our campus, community, and prospective students. </span>
+    </li>
+
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong> Librarians On-Call: A Review of Search Tools Utilized by Fourth Year Medical Students </strong><br>
+<span class="author">Celeste Perez - Texas Medical Center Library - <a class="mtg-link" href="mailto: celeste.perez@library.tmc.edu " target="_blank">celeste.perez@library.tmc.edu </a><br>
+Brandon Kennedy, Katie Prentice, Sonya Fogg, Jennifer Stockton, Bronwyn Sutherland, Lara Oulette, Sandra Desjardins, Beatriz Varman, Tracy Ashby - Texas Medical Center Library <br></span><span><br>
+<b>Objective: </b>A team of research & instruction librarians were given the opportunity to observe the  medical readiness of fourth year medical students (MS4s) for finding evidence-based  clinically relevant information (drug choice, patient care, etc.) during an on-call simulation.  For this initial analysis, we observed the search tools utilized by MS4s when asked to  recommend treatment for simulated patients.  
+<br><b>Methods: </b>10 librarians were asked to evaluate 1 module of a simulation required of 240 MS4s as a  gauge of their readiness to be residents on call. A Night On-Call Simulation program was  used to record their responses & online navigation. The MS4s attended sessions over a  period of 4 weeks, and the recordings were scored within 24 hours of submission in most  cases.  
+<br><b>Results: </b>Out of 240 MS4s, 221 successfully submitted a recording for librarians to review. The  librarians used these recordings to compare how many times MS4s chose and navigated:  point of care tools, library databases, and/or outside sources.  
+<br><b>Conclusions: </b>Some MS4s were unsure of where to start answering medical questions at the point of  care. The MS4s rarely utilized library resources and sometimes chose outside sources like  Google, AI, etc. Those who chose literature databases displayed poor use of filters to focus  on the most recent and best evidence-based papers. This gave the librarians a baseline to  improve educational services and resources for medical students participating in this night  on-call simulation. </span>
+    </li>
+
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Enhancing Public Health Through Legislative Awareness  </strong><br>
+<span class="author">Dana Abbey - University of Colorado Anschutz Medical Campus - <a class="mtg-link" href="mailto: dana.abbey@cuanschutz.edu " target="_blank">dana.abbey@cuanschutz.edu </a><br>
+George Strawley - University of Utah <br> David Brown - University of Wyoming<br></span><span><br>
+In today's evolving public health landscape, effective policy is key to community well-being. Yet, many health professionals lack training in public health law, limiting their ability to engage with legislation that shapes health outcomes. Library staff can play a vital role in bridging this gap by connecting users with trusted policy resources. This poster introduces tools to help library professionals support public health stakeholders in navigating policy. A major challenge is the time-intensive task of tracking legislation. The National Conference of State Legislatures (NCSL) offers over 50 nonpartisan, evidence-based databases that track public health bills across all stages-from introduction to enactment. By learning to use these tools, library staff can guide users in analyzing policy trends, identifying key decision-makers, and monitoring legislation relevant to their work. This empowers libraries to become strategic partners in public health advocacy, providing access to timely, actionable policy information. </span>
+    </li>
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Assessing the Importance of Specific Databases in Systematic Reviews & Other Research Syntheses: an Investigative Approach  </strong><br>
+<span class="author">Kyle M. Holland - Texas A&M University - Medical Sciences Library - <a class="mtg-link" href="mailto: kyle.holland@tamu.edu " target="_blank">kyle.holland@tamu.edu </a><br>
+ Margaret J. Foster<br></span><span><br>
+The landscape of information retrieval is shifting beneath the feet of librarians and information professionals. Emerging technologies and interface overhauls are affecting user experience, expert searching, product pricing, the interpretation of information within database interfaces, and overall functionality. And while librarians are historically fleet-footed, foresight generally outperforms reaction. Therefore, it has become increasingly necessary to evaluate databases in the context of our work. In this poster, I present a method to evaluate the necessity of databases within the context of systematic reviews and other forms of research synthesis. This method entails three basic steps. The first step is to isolate a set of reviews which represent some locus of interest. The second step is to identify which studies were selected for inclusion in each review from this set. The third step is to compare these included studies against the journal coverage data for a set of databases. The usefulness of this analysis can be enhanced by identifying which databases were searched during the course of each review. The value of this method is predicated on a simple syllogism: Within a set of related reviews, the studies that are included and analyzed are the basis of those reviews' value. Every study is indexed within finite number of databases. Therefore, the databases where these studies are retrievable represent a nexus of value with respect to these reviews' sphere of relation. </span>
+    </li>
+
+ <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="2">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 11:00-12:00pm<br>
+      Salon D & Foyer</b></span><br>
+<strong>Inreach: A Reversal Of Our Outreach Program  </strong><br>
+<span class="author">
+ Kenya Iverson - Louisiana State University Health Sciences Center at Shreveport - <a class="mtg-link" href="mailto: kenya.iverson@lsuhs.edu" target="_blank">kenya.iverson@lsuhs.edu</a><br></span><span><br>
+
+<b>Objective: </b>A prominent academic medical center and a vital public library system have established a dynamic partnership. This collaboration unites their unique strengths to empower local citizens and the academic community with resources fostering prosperity, creativity, and knowledge.  
+<br><b>Methods: </b>Methods: By leveraging distinct organizational assets, this initiative aims to cultivate a more informed and enriched community. This model demonstrates how diverse entities can combine efforts to enhance public access to critical information and educational opportunities.  
+<br><b>Results: </b>This multifaceted partnership provides support from both institutions: Public Library's Multifaceted Support: A. Mobile Outreach & Accessibility, B. Lending in Multiple Formats, C. Collaborative Marketing:   Academic Medical Center - Cultivating Well-being and Engagement: A. Intellectual Engagement, B. Enriching Campus Life  
+<br><b>Conclusions: </b>Ultimately contributing to broader societal well-being and intellectual growth, this partnership offers a replicable framework for inter-institutional collaboration focused on community empowerment through shared resources.  </span>
+    </li>
+     <li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Popular Reading in a Medical Library: a Mental Health Intervention  </strong><br>
+<span class="author">Sara Ann Stinson - Burnett School of Medicine at Texas Christian University - <a class="mtg-link" href="mailto: sara.ann.stinson@tcu.edu" target="_blank">
+sara.ann.stinson@tcu.edu</a><br> Alysha Sapp<br></span><span><br>
+Mental health is at an all-time low for medical students around the world. Building on previous research that shows that students' exposure to the humanities is linked to prevention of burnout, the authors have designed a study to test the effects of a new popular reading collection within a medical library. They have received a grant to support their study. They will use a presurvey and a postsurvey to assess the changes in students' reported sense of well-being and feelings of burnout before and after the addition of a popular reading collection. This poster will report on the current developments of this in-progress study. </span>
+    </li>
+
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>DEI is Here to Stay: MLA Chapters Amplifying Justice, Equity, Diversity, and Inclusion  </strong><br>
+<span class="author">
+Adela V. Justice - University of Texas MD Anderson Cancer Center - <a class="mtg-link" href="mailto: avjustice@mdanderson.org" target="_blank">avjustice@mdanderson.org</a>
+<br>Amy Ferguson, Kenya Iverson, Sloane Kelley, Sonya Lemke, Lauren Wojcik<br></span><span><br>
+<b> Background: </b>Given the current political climate, many libraries and librarians are seeking new ways to promote justice, equity, diversity and inclusion within medical librarianship. Eight of MLA's 12 chapters have committees or task forces dedicated to promoting diversity, equity and inclusion (DEI). This poster describes the DEI activities undertaken by these chapters over the past year.    
+<br><b> Description: </b>A scan was completed to record activities completed by the eight DEI committees or task forces from 2024-2025. These activities include programming such as open forums or speaker events and newsletter articles or other publications. The methods used in collecting these activities were surveying the chapter DEI webpages and/or directly consulting with the chairs of the committees/task forces.    
+<br><b>Conclusion: </b>Despite increasing legislative challenges and the chilling effects of anti-DEI rhetoric, the eight DEI committees/task forces of MLA chapters continue to engage in admirable, meaningful and proactive work.  It is illuminating and inspiring to see the variety of events which support the continued importance of DEI principles; particularly as they relate to medical education, patient care, and public health.  The SCC JEDI committee is one of the newest MLA DEI committees and may be inspired to pursue some of the ideas discovered in this scan. </span>
+    </li>
+
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Implementing Feedback in the Library Orientation Course: Librarians as Active Collaborators in the Medical Curriculum  </strong><br>
+<span class="author">
+Beatrice Calvert - Tulane University - <a class="mtg-link" href="mailto: bcalvert@tulane.edu" target="_blank">
+bcalvert@tulane.edu  </a>
+<br>Emily Alleman, Yue Ming<br></span><span><br>
+<b>Objective: </b>Librarians provide a library orientation class for first-year medical students in their first semester. This annual class is taught in-person and is taught to 6 sessions of groups of 30-35 students. The class objectives are threefold: to introduce students to evidence-based medicine via the PICO format, to form a research or clinical question, and to demonstrate information-seeking skills needed to search the PubMed database. 
+<br><b>Methods: </b>The course focuses on a hands-on approach to the research process by providing written and individualized feedback to the students. By evaluating the students' work at this early stage, librarians become vital collaborators in the medical school curriculum. The library orientation class goes beyond a basic introduction to health sciences research by including individualized feedback to the students. This collaboration lays the foundation for more structured information-seeking instruction in the self-directed learning classes that will follow in their first year in which feedback is a required component. 
+<br><b>Results: </b>Based on a post-course feedback survey, students reported feeling more confident using EBM concepts and accessing PubMed articles. 
+<br><b>Conclusion: </b>By providing specific written feedback in the library orientation class, the librarians are establishing their roles as collaborators and developing a relationship with the first-year medical students. </span>
+    </li>
+
+ 
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Brewed Connections: Bringing Early Career Librarians Together through Virtual Coffee Chats </strong><br>
+<span class="author">
+Brandon Kennedy - Texas Medical Center Library - <a class="mtg-link" href="mailto: brandon.kennedy@library.tmc.edu " target="_blank">brandon.kennedy@library.tmc.edu</a><br>
+ Alex Henigman - University of Missouri<br> Sarah Villere - Intermountain Health
+ Brianna Hales Simmons University<br></span><span><br>
+Early Career Librarians (ECLs) thrive on collaboration, informal exchange, and community elements that have been challenged by remote and hybrid work. In response, an ECL task force developed and implemented a monthly Virtual Coffee Chat project aimed at fostering informal nationwide connections among ECLs and Library and Information Science (LIS) students interested or involved in health sciences. Hosts provided discussion prompts while also fostering an open forum to discuss challenges and current events such as: AI, systematic reviews, faculty conversations, organizational structures, and training challenges.     This poster presents the design, launch, and impact of the ongoing Virtual Coffee Chat project. This poster will share implementation strategies, participation rates, and preliminary qualitative feedback highlighting increased belonging, unexpected mentorships, and cross-organizational collaborations. Key challenges (e.g. engagement fatigue, chat expectations) and potential solutions will also be discussed. Poster presentation attendees will leave with a scalable, adaptable model that they can implement in their own organizational contexts to support ECLs and LIS students by building a culture of belonging, one cup at a time.  </span>
+    </li>
+ 
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Six months as New Librarian six months with New Accelerated BSN Program  </strong><br>
+<span class="author">
+Carlisle Isley - Tulane University - <a class="mtg-link" href="mailto: cisley@tulane.edu
+" target="_blank">cisley@tulane.edu </a><br></span><span><br>
+Over the past six months as the new Research Support Librarian supporting an Accelerated BSN program, I have seen both the program, and my role grow. By partnering with the program, I can empower students to effectively conduct online research and apply evidence-based practice in a clinical setting. The student cohort expansion has allowed for increased opportunities for my involvement. I have led new student orientations and been embedded into a course: Nursing Research and Evidence-Based Practice. I conducted consultations with students where we explored their research questions for a future research poster. I was able to introduce essential research skills, library resources, and database accessibly. This poster will share insights into the building of relationships between the library and the program and highlight my experiences and perspective as a new librarian supporting an emerging program. Introducing EBP fosters a collaborative learning environment and allows students to acknowledge that adaptability is key in the nursing profession.      </span>
+    </li>
+  
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Making Lemonade at the Circ Desk  </strong><br>
+<span class="author">
+ Elizabeth Holt – Louisiana State University Health Sciences Center at New Orleans - <a class="mtg-link" href="mailto: eholt3@lsuhsc.edu " target="_blank">eholt3@lsuhsc.edu</a><br>
+ Chandler Smith, Rowan Marye, Matt Folse - Louisiana State University Health Sciences Center at New Orleans<br></span><span><br>
+Staff shortages invariably present challenges, but they can also provide opportunities. A recent situation of two circulation desk roles needing to be temporarily filled by reference staff allowed those librarians to engage in a variety of outreach projects (movie night, anime series viewing, specialized services workshops, etc) they normally would have some logistical difficulties incorporating into their assigned duties. This poster will share the projects, the planning, and the hopefully good outcomes (based on attendance and feedback) when reference services librarians get to step into the shoes of their public services colleagues. </span>
+    </li>
+
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Hosting a National Library of Medicine's Traveling Exhibit  </strong><br>
+<span class="author">
+Emily Alleman - Tulane University - <a class="mtg-link" href="mailto: ealleman@tulane.edu 
+" target="_blank">ealleman@tulane.edu  </a><br></span><span><br>
+
+The Health Sciences Library hosted a traveling exhibition from the National Library of Medicine at the University's teaching hospital for two weeks during the Summer of 2025. The exhibit, titled "This Lead is Killing Us" explored the history of lead contamination during the 20th century in the United States. Lead poisoning is a pervasive issue that causes neurological and developmental problems for those exposed.  
+<br>
+In 2024, the teaching hospital merged and moved to a private hospital conglomerate. Since then, teaching operations have shifted to the hospital located about 10 miles away. Librarians worked in coordination with the hospital administration and the library's public relations team to market the event. The library created a task force of 2 librarians who handled scheduling, preparing trainings, and resources. Librarians shared lead prevention resources from the city and state government, along with pamphlets from the National Library of Medicine. Additionally, an emphasis was placed on showing patrons MedlinePlus, the largest health consumer information website. Librarians tracked more than 424 engagements with the hospital staff, patients and university affiliates. 
+<br>
+Prior to this, the Health Sciences Library did not have an opportunity to formally engage with the new teaching hospital. By providing an outreach program, the library formed connections with new hospital administration and provided a presence for university affiliates, providers, and patients. </span>
+    </li>
+
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Boosting Confidence & Capacity:  A Toolkit for Librarians Supporting Student Evidence Synthesis Projects  </strong><br>
+<span class="author"> Esmeralda Garcia Rodgers - Texas A&M University - <a class="mtg-link" href="mailto: esmeralda.rodgers@tamu.edu" target="_blank">esmeralda.rodgers@tamu.edu  </a>
+<br></span><span><br>
+<b> Purpose: </b>
+This poster details the creation of an internal LibGuide toolkit designed for librarians who support student evidence synthesis projects.    
+<br><b> Setting/Population: </b>
+Our public R# medical sciences library supports diverse health disciplines, including medicine, nursing, pharmacy, public health, health centers, and veterinary medicine, with librarians serving distributed locations throughout the state. The team consists of dedicated evidence synthesis librarians focusing on complex co-authorship level reviews and research & education librarians who assist with student-led projects.     
+<br><b> Design: </b>
+Our toolkit provides a structured framework for navigating student projects. It covers essential areas such as outlining competencies for student meetings, guiding effective reference interviews, providing a post-meeting checklist, and offering comprehensive guidance on various review types, question development, searching, and guidelines.    
+<br><b> Results/Outcomes: </b>
+The poster will showcase key sections of this guide, demonstrating its broad utility for any librarian involved in supporting student review projects. It will include early usage statistics and discuss planned future additions based on user feedback, highlighting how this resource standardizes support and ultimately impacts librarian confidence and capacity while elevating the quality of student-led evidence synthesis projects. </span>
+    </li>
+
+<li class="list-item" data-location="Salon DF" data-type="Poster" data-date="Monday" data-time="3">
+      <span style="text-align: right;"><b>Poster<br>
+      Monday Oct. 27th, 2025 2:00-3:00pm<br>
+      Salon D & Foyer </b></span><br>
+<strong>Relax and Read: A Book Club Supporting Wellness in the Academic Health Sciences Community  </strong><br>
+<span class="author">
+Jason Spears - University of Oklahoma Health Sciences - <a class="mtg-link" href="mailto: jason-spears@ouhsc.edu" target="_blank">jason-spears@ouhsc.edu</a>
+<br>
+Ian Dean, Joy Summers-Ables, Faith Hays, Shelby Soto, Payton Patterson-Jones<br></span><span>
+<br><b>Goal: </b>
+To facilitate a recreational reading book club that seeks to enhance social interaction, encourage mental stimulation, and support emotional well-being through shared literary experiences.  Objective: Titles with a recreational focus are selected to provide a mental break from academic and professional demands. Each session offers a neutral, inclusive space where participants can explore diverse literary works and engage in open, reflective discussions, encouraging expression of individual perspectives and promoting connection across disciplines and backgrounds.  
+<br><b>Methods: </b>
+The book club is held three times annually. A limited number of books are purchased and distributed on a first-come, first-served basis.  Library staff serve as facilitators, guiding discussions that emphasize personal reflection, diverse perspectives, and informal dialogue. The program follows a participatory model, incorporating ongoing feedback and participant input to inform book selection and structural adjustments. This adaptive approach ensures the book club remains responsive to the evolving interests and needs of its community.  
+<br><b>Results: </b>
+Attendance has included a diverse mix of students, faculty, and staff. Participants report feeling mentally refreshed and emotionally supported through shared literary exploration. Post-event surveys indicate high satisfaction.  Informal feedback highlights the value of interacting with colleagues outside of traditional academic or clinical roles.    
+</span>
+    </li>
+    </ul>  
+  <button id="backToTop">↑ Back to Top</button>
+
+  <script>
+    const filters = document.querySelectorAll('select');
+    const authorSearch = document.getElementById('author-search');
+    const resetButton = document.getElementById('resetFilters');
+    const items = document.querySelectorAll('.list-item');
+    const backToTopButton = document.getElementById('backToTop');
+
+    filters.forEach(filter => {
+      filter.addEventListener('change', () => {
+        filter.classList.toggle('active', filter.value !== '');
+        applyFilters();
+      });
+    });
+
+    authorSearch.addEventListener('input', applyFilters);
+
+    resetButton.addEventListener('click', () => {
+      filters.forEach(f => {
+        f.value = '';
+        f.classList.remove('active');
+      });
+      authorSearch.value = '';
+      applyFilters();
+    });
+
+    function applyFilters() {
+      const authorValue = authorSearch.value.toLowerCase();
+      const locationValue = document.getElementById('location').value;
+      const typeValue = document.getElementById('type').value;
+      const dateValue = document.getElementById('date').value;
+      const timeValue = document.getElementById('time').value;
+
+      items.forEach(item => {
+        const matches =
+          (authorValue === '' || item.querySelector('.author').textContent.toLowerCase().includes(authorValue)) &&
+          (locationValue === '' || item.dataset.location === locationValue) &&
+          (typeValue === '' || item.dataset.type === typeValue) &&
+          (dateValue === '' || item.dataset.date === dateValue) &&
+          (timeValue === '' || item.dataset.time === timeValue); 
+
+        item.style.display = matches ? '' : 'none';
+      });
+    }
+
+    // Back to Top button
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 200) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+  </table>
